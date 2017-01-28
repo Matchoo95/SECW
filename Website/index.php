@@ -26,7 +26,7 @@
   </header>
     <main>
       <a href="search.php" class="button">I am Looking for Accomodation</a>
-      <a href="advertise.php" class="button">I am Want to Advertise Accomodation</a>
+      <a href="advertise.php" class="button">I Want to Advertise Accomodation</a>
     </main>
     <footer>
       <p>
