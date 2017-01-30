@@ -39,6 +39,7 @@ $_SESSION[Username] = "Not logged in";
             <form id='login' action='login.php' method='post' accept-charset='UTF-8'
                 <fieldset>
                   <legend>Login</legend>
+                    <!--TODO make sure each text box is on a seperate line-->
                   <input type='hidden' name='submitted' id='submitted' value='1' />
 
                   <label for='username'>Username:</label>

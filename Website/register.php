@@ -3,6 +3,7 @@
 <form id="register" action="register.php" method="post" accept-charset="UTF-8"> <!--TODO will need to check values before entering them in database-->
 <fieldset style="width:70%">
   <legend>Registration</legend>
+  <!--TODO make sure each text box is on a seperate line-->
     <input type='hidden' name='submitted' id='submitted' value='1'/>
 
     <label for='firstname'>First Name:</label>
@@ -21,7 +22,7 @@
     <input type='text' name='password' id='password' maxlength="50" />
 
     <input type='submit' name='Submit' value='Submit' />
-      
+
 </fieldset>
 </form>
 </html>
