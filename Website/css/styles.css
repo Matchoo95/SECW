@@ -30,6 +30,11 @@ main {
   padding-bottom: 10%
 }
 
+.leftSideBar {
+  float: left;
+
+}
+
 /*TODO change px to em or decide on other form of sizing*/
 /*button styles*/
 .button {
