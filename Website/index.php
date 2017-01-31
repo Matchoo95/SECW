@@ -1,7 +1,20 @@
 <?php
-// start session
-session_start();
-$_SESSION[Username] = "Not logged in";
+    // start session
+    session_start();
+    $_SESSION[Username] = "Not logged in";
+
+
+    // connect to database
+    $host_name  = "db667536964.db.1and1.com";
+    $database   = "db667536964";
+    $user_name  = "dbo667536964";
+    $password   = "Ti63df2754";
+    $connect = mysqli_connect($host_name, $user_name, $password, $database);
+    if(mysqli_connect_errno()) {
+        echo '<p>Could not connect to the MySQL server: '.mysqli_connect_error().'</p>';
+    } else {
+        echo '<p>Connected to the MySQL server successfully.</p>';
+    }
 ?>
 
 <html lang="en">
@@ -20,10 +33,10 @@ $_SESSION[Username] = "Not logged in";
     </h1>
         <nav class="navigation">
           <ul>
-             <li class="active"><a href="#home">Home</a></li>
-             <li ><a href="#search">Search</a></li>
-             <li ><a href="#advertise">Advertise</a></li>
-             <li ><a href="#about">About</a></li>
+             <li class="active"><a href="index.php">Home</a></li>
+             <li ><a href="search.php">Search</a></li>
+             <li ><a href="advertise.php">Advertise</a></li>
+             <li ><a href="about.php">About</a></li>
              <li ><a href="register.php">Register</a></li>
           </ul>
         </nav>
@@ -36,14 +49,14 @@ $_SESSION[Username] = "Not logged in";
                 echo $_SESSION[Username];
               ?>
             </h3>
-            <form id='login' action='login.php' method='post' accept-charset='UTF-8'
+            <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
                 <fieldset>
                   <legend>Login</legend>
                     <!--TODO make sure each text box is on a seperate line-->
                   <input type='hidden' name='submitted' id='submitted' value='1' />
 
                   <label for='username'>Username:</label>
-                  <input tpye='text' name='username' id='username' maxlength="50" />
+                  <input type='text' name='username' id='username' maxlength="50" />
 
                   <label for='password' >Password:</label>
                   <input type='password' name='password' id='password' maxlength="50" />
