@@ -1,7 +1,7 @@
 <?php
     // start session
-    session_start();
-    $_SESSION[Username] = "Not logged in";
+    //session_start();
+    //$_SESSION[Username] = "Not logged in";
 
 
     // connect to database
@@ -9,11 +9,15 @@
     $database   = "db667536964";
     $user_name  = "dbo667536964";
     $password   = "Ti63df2754";
+
+    // create connection
     $connect = mysqli_connect($host_name, $user_name, $password, $database);
-    if(mysqli_connect_errno()) {
-        echo '<p>Could not connect to the MySQL server: '.mysqli_connect_error().'</p>';
-    } else {
-        echo '<p>Connected to the MySQL server successfully.</p>';
+
+    // check connection
+    if (!$connect) {
+        die("Connection failed: " . mysqli_connect_error());
+    }else{
+        echo "Connected successfully";
     }
 ?>
 
@@ -46,7 +50,19 @@
           <article id="signin">
             <h3>
               <?php
-                echo $_SESSION[Username];
+                //echo $_SESSION[Username];
+                $sql = "SELECT * FROM `Users`";
+                $result = mysql_query($connect, $sql);
+
+                if(mysqli_num_rows($result)>0){
+                  // output data for each row in table
+                  while($row = mysqli_fetch_assoc($result)){
+                    echo "Username: " . $row["username"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+                  }
+                }else{
+                  echo "0 results";
+                }
+                mysqli_close($connect)
               ?>
             </h3>
             <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
