@@ -63,4 +63,5 @@ session_start();
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>
