@@ -14,15 +14,15 @@ if(isset($_POST['username']) and isset($_POST['password']))
 
   if ($count == 1){
     $_SESSION['username'] = $username;
-    //header('Refresh: 0;url=controlPanel.php');
+    header('Refresh: 0;url=controlPanel.php');
   }else{
-    echo "Email or password entered is incorrect.";
+    echo "<br />Email or password entered is incorrect.";
   }
 }
 
 if(isset($_SESSION['username'])){
   $username = $_SESSION['username'];
-  echo "Hey there, " . $username . ".";
-  echo "<a href='logout.php'>Logout</a>";
+  echo "<br />Hey there, " . $username . ".";
+  echo "<br /><a href='logout.php'>Logout</a>";
 }
 ?>

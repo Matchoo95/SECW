@@ -1,1 +1,4 @@
-<?php echo "Success!" ?>
+<?php
+// control panel for landlords
+echo "Success!";
+?>

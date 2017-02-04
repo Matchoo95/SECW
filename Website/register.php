@@ -31,32 +31,39 @@ if (isset($_POST['username']) && isset($_POST['password'])){
   <body>
     <form id="register" onsubmit="return validateRegisterForm()"
     method="post" accept-charset="UTF-8">
-    <!-- output pass or fail messages to user
-    <?php if(isset($passmsg)){ echo $passmsg;}?>
-    <?php if(isset($failmsg)){ echo $failmsg;}?>
-    -->
-      <fieldset style="width:70%">
-        <legend>Registration</legend>
+      <!-- output pass or fail messages to user-->
+      <?php if(isset($passmsg)){ echo $passmsg;}?>
+      <?php if(isset($failmsg)){ echo $failmsg;}?>
+      <h2>Register Form</h2>
+      <h3>Please Fill in All Boxes</h3>
         <!--TODO make sure each text box is on a seperate line-->
-          <input type='hidden' name='submitted' id='submitted' value='1'/>
-
           <label for='firstname'>First Name:</label>
-          <input type='text' name='firstname' id='firstname' maxlength="100" />
+          <input type='text' name='firstname' id='firstname' maxlength="100" placeholder="First Name" required/>
+
+          <br />
 
           <label for='lastname'>Last Name:</label>
-          <input type='text' name='lastname' id='lastname' maxlength="100" />
+          <input type='text' name='lastname' id='lastname' maxlength="100" placeholder="Last Name" required/>
+
+          <br />
 
           <label for='email'>Email Address:</label>
-          <input type='text' name='email' id='email' maxlength="50" />
+          <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
+
+          <br />
 
           <label for='username'>Username:</label>
-          <input type='text' name='username' id='username' maxlength="50" />
+          <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
           <!--TODO make password field auto asterix as the user types-->
-          <label for='password'>Password:</label>
-          <input type='text' name='password' id='password' maxlength="50" />
 
-          <input type='submit' name='Submit' value='Submit' />
-      </fieldset>
+          <br />
+
+          <label for='password'>Password:</label>
+          <input type='text' name='password' id='password' maxlength="50" placeholder="Password" required/>
+
+          <br />
+
+          <button type='submit' name='Submit' value='Submit'>Sign in</button>
     </form>
   </body>
 </html>
