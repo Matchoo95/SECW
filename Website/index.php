@@ -1,7 +1,8 @@
 <?php
-session_start();
-      include './auth.php';
-      include './query.php';
+  session_start();
+  include './auth.php';
+  include './query.php';
+  include './login.php';
 ?>
 
 <html lang="en">
@@ -31,31 +32,29 @@ session_start();
     <main>
         <section class="leftSideBar">
           <article id="signin">
-            <h3>
+            <form id='login' method='post' accept-charset='UTF-8'>
+              <!--TODO make sure each text box is on a seperate line-->
+              <h2>Sign in</h2>
 
-            </h3>
-            <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
-                <fieldset>
-                  <legend>Login</legend>
-                    <!--TODO make sure each text box is on a seperate line-->
-                  <input type='hidden' name='submitted' id='submitted' value='1' />
+              <label for='username'>Username:</label>
+              <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
 
-                  <label for='username'>Username:</label>
-                  <input type='text' name='username' id='username' maxlength="50" />
+              <br />
 
-                  <label for='password' >Password:</label>
-                  <input type='password' name='password' id='password' maxlength="50" />
+              <label for='password' >Password:</label>
+              <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
 
-                  <input type='submit' name='Submit' value='Submit' />
-                </fieldset>
+              <br />
+
+              <button type='submit' name='Submit' value='Submit'>Sign in</button>
+
             </form>
-
-
           </article>
         </section>
-
-      <a href="search.php" class="button">I am Looking for Accomodation</a>
-      <a href="advertise.php" class="button">I Want to Advertise Accomodation</a>
+        <section id="mainCont" class="mainContent">
+          <a href="search.php" class="button">I am Looking for Accomodation</a>
+          <a href="advertise.php" class="button">I Want to Advertise Accomodation</a>
+       </section>
     </main>
     <footer>
       <p>

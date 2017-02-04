@@ -23,7 +23,7 @@ nav li a:hover, nav li current {
     color: #000000;
 }
 
-main {
+.mainContent {
   margin: auto;
   width: 50%;
   padding-top: 10%;
@@ -32,7 +32,7 @@ main {
 
 .leftSideBar {
   float: left;
-
+  width: 25%;
 }
 
 /*TODO change px to em or decide on other form of sizing*/
