@@ -59,11 +59,11 @@ if (isset($_POST['username']) && isset($_POST['password'])){
           <br />
 
           <label for='password'>Password:</label>
-          <input type='text' name='password' id='password' maxlength="50" placeholder="Password" required/>
+          <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
 
           <br />
 
-          <button type='submit' name='Submit' value='Submit'>Sign in</button>
+          <button type='submit' name='Submit' value='Submit'>Register</button>
     </form>
   </body>
 </html>
