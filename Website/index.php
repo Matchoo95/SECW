@@ -34,7 +34,6 @@
         <section class="leftSideBar">
           <article id="signin">
             <form id='login' method='post' accept-charset='UTF-8'>
-              <!--TODO make sure each text box is on a seperate line-->
               <h2>Sign in</h2>
 
               <label for='username'>Username:</label>
@@ -42,7 +41,7 @@
 
               <br />
 
-              <label for='password' >Password:</label>
+              <label for='password'>Password:</label>
               <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
 
               <br />

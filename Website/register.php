@@ -19,51 +19,77 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     }
   }
 ?>
-<html>
-
+<html lang="en">
   <head>
+    <title>Edu Home</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css">
-  </head>
+</head>
 
-  <body>
-    <form id="register" onsubmit="return validateRegisterForm()"
-    method="post" accept-charset="UTF-8">
-      <!-- output pass or fail messages to user-->
-      <?php if(isset($passmsg)){ echo $passmsg;}?>
-      <?php if(isset($failmsg)){ echo $failmsg;}?>
-      <h2>Register Form</h2>
-      <h3>Please Fill in All Boxes</h3>
-        <!--TODO make sure each text box is on a seperate line-->
-          <label for='firstname'>First Name:</label>
-          <input type='text' name='firstname' id='firstname' maxlength="100" placeholder="First Name" required/>
+<body>
+  <header>
+    <h1 class="logo">
+      <a href="index.php">Edu Home</a> <!--feel free to change to a image later-->
+    </h1>
+        <nav class="navigation">
+          <ul>
+             <li class="active"><a href="index.php">Home</a></li>
+             <li ><a href="search.php">Search</a></li>
+             <li ><a href="advertise.php">Advertise</a></li>
+             <li ><a href="about.php">About</a></li>
+             <li ><a href="register.php">Register</a></li>
+          </ul>
+        </nav>
+  </header>
+    <main>
+        <section class="leftSideBar">
+          <article id="register">
+            <form id="register" onsubmit="return validateRegisterForm()"
+            method="post" accept-charset="UTF-8">
+              <!-- output pass or fail messages to user-->
+              <?php if(isset($passmsg)){ echo $passmsg;}?>
+              <?php if(isset($failmsg)){ echo $failmsg;}?>
+              <h2>Register Form</h2>
+              <h3>Please Fill in All Boxes</h3>
+                  <label for='firstname'>First Name:</label>
+                  <input type='text' name='firstname' id='firstname' maxlength="100" placeholder="First Name" required/>
 
-          <br />
+                  <br />
 
-          <label for='lastname'>Last Name:</label>
-          <input type='text' name='lastname' id='lastname' maxlength="100" placeholder="Last Name" required/>
+                  <label for='lastname'>Last Name:</label>
+                  <input type='text' name='lastname' id='lastname' maxlength="100" placeholder="Last Name" required/>
 
-          <br />
+                  <br />
 
-          <label for='email'>Email Address:</label>
-          <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
+                  <label for='email'>Email Address:</label>
+                  <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
 
-          <br />
+                  <br />
 
-          <label for='username'>Username:</label>
-          <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-          <!--TODO make password field auto asterix as the user types-->
+                  <label for='username'>Username:</label>
+                  <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
+                  <!--TODO make password field auto asterix as the user types-->
 
-          <br />
+                  <br />
 
-          <label for='password'>Password:</label>
-          <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
+                  <label for='password'>Password:</label>
+                  <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
 
-          <br />
+                  <br />
 
-          <button type='submit' name='Submit' value='Submit'>Register</button>
-    </form>
+                  <button type='submit' name='Submit' value='Submit'>Register</button>
+            </form>
+          </article>
+        </section>
+    </main>
+    <footer>
+      <p>
+        FOOTER
+      </p>
+    </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>
