@@ -5,16 +5,15 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
+    $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$username', '$password')";
+    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `phone`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$username', '$password')";
     $result = mysqli_query($connect, $sql);
     if($result){
-      echo "Your Account Has Been Created.";
       $passmsg = "Your Account Has Been Created.";
     }else{
-      echo "Registration Failed";
       $failmsg = "Registration Failed" . mysqli_error($link);;
     }
   }
@@ -68,10 +67,16 @@ if (isset($_POST['username']) && isset($_POST['password'])){
                   <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
 
                   <br />
+                
+                
+                  <label for='phone'>Contact Number:</label>
+                  <input type='text' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
+                
+                  <br />
 
                   <label for='username'>Username:</label>
                   <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-                  <!--TODO make password field auto asterix as the user types-->
+  
 
                   <br />
 
