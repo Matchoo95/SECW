@@ -55,12 +55,31 @@
           <h2>Search Results</h2>
 <?php
 
-$query = $_GET['city']; // assign user input
+  // prevent sql injectsions
+ $city = trim($_POST['city']);
+ $city = strip_tags($city);
+ $city = htmlspecialchars($city);
 
+ $bedroom = trim($_POST['bedroom']);
+ $bedroom = strip_tags($bedroom);
+ $bedroom = htmlspecialchars($bedroom);
 
-$query = htmlspecialchars($query); // converts html special characters
+ $type = trim($_POST['type']);
+ $type = strip_tags($type);
+ $type = htmlspecialchars($type);
 
-echo "<p>.$query</p>";
+ $max = trim($_POST['max']);
+ $max = strip_tags($max);
+ $max = htmlspecialchars($max);
+
+ $min = trim($_POST['min']);
+ $min = strip_tags($min);
+ $min = htmlspecialchars($min);
+
+//$query = $city . $bedroom . $type . $max . $min;
+$query = $city;
+
+echo "<p>You searched for <b>$query</b></p>";
 
 // search address fields for user input
 $sql = "SELECT * FROM Listings WHERE (`city` LIKE '%".$query."%')";

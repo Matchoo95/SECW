@@ -2,12 +2,31 @@
 include './auth.php'; // TODO consider changing to require instead
 // if values are entered, put them in database
 if (isset($_POST['username']) && isset($_POST['password'])){
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+
+    // prevent sql injectsions
+    $firstname = trim($_POST['firstname']);
+    $firstname = strip_tags($firstname);
+    $firstname = htmlspecialchars($firstname);
+
+    $lastname = trim($_POST['lastname']);
+    $lastname = strip_tags($lastname);
+    $lastname = htmlspecialchars($lastname);
+
+    $email = trim($_POST['email']);
+    $email = strip_tags($email);
+    $email = htmlspecialchars($email);
+
+    $phone = trim($_POST['phone']);
+    $phone = strip_tags($phone);
+    $phone = htmlspecialchars($phone);
+
+    $username = trim($_POST['username']);
+    $username = strip_tags($username);
+    $username = htmlspecialchars($username);
+
+    $password = trim($_POST['password']);
+    $password = strip_tags($password);
+    $password = htmlspecialchars($password);
 
     $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `phone`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$phone', '$username', '$password')";
     $result = mysqli_query($connect, $sql);

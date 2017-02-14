@@ -53,6 +53,7 @@
           <form action="searchresults.php" method="get">
             <h2>Search</h2>
             <p>Please enter criteria for your search.</p>
+            <h1>ONLY CITY WORKS AT THE MOMENT</h1>
             <label for'city'>City</label>
             <input type="text" name="city" />
             <label for'type'>Accomodation Type</label>

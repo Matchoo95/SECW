@@ -1,7 +1,6 @@
 <?php
   session_start();
   include './auth.php';
-  include './query.php';
   include './login.php';
 ?>
 
