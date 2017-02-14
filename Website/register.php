@@ -14,7 +14,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     if($result){
       $passmsg = "Your Account Has Been Created.";
     }else{
-      $failmsg = "Registration Failed" . mysqli_error($link);;
+      $failmsg = "Registration Failed" . mysqli_error($connect);
     }
   }
 ?>
