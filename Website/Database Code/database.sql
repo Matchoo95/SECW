@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db667536964.db.1and1.com
--- Generation Time: 2017 年 2 月 15 日 00:34
--- サーバのバージョン： 5.5.54-0+deb7u2-log
+-- Generation Time: Feb 15, 2017 at 12:36 AM
+-- Server version: 5.5.54-0+deb7u2-log
 -- PHP Version: 5.4.45-0+deb7u7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `Appointments`
+-- Table structure for table `Appointments`
 --
 
 CREATE TABLE IF NOT EXISTS `Appointments` (
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `Appointments` (
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `Landlords`
+-- Table structure for table `Landlords`
 --
 
 CREATE TABLE IF NOT EXISTS `Landlords` (
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `Landlords` (
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `Listings`
+-- Table structure for table `Listings`
 --
 
 CREATE TABLE IF NOT EXISTS `Listings` (
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `Listings` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
 
 --
--- テーブルのデータのダンプ `Listings`
+-- Dumping data for table `Listings`
 --
 
 INSERT INTO `Listings` (`listingID`, `information`, `photoLink`, `price`, `contactNumber`, `addressLineOne`, `addressLineTwo`, `city`, `county`, `postcode`, `Users_userID`, `bedroom`, `type`) VALUES
@@ -86,7 +86,7 @@ INSERT INTO `Listings` (`listingID`, `information`, `photoLink`, `price`, `conta
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `Users`
+-- Table structure for table `Users`
 --
 
 CREATE TABLE IF NOT EXISTS `Users` (
@@ -104,30 +104,30 @@ CREATE TABLE IF NOT EXISTS `Users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
 
 --
--- テーブルのデータのダンプ `Users`
+-- Dumping data for table `Users`
 --
 
 INSERT INTO `Users` (`userID`, `username`, `password`, `phone`, `email`, `firstname`, `lastname`) VALUES
 (1, 'matt', 'matt', 2147483647, 'up769535@myport.ac.uk', 'Matt', 'Hawkins');
 
 --
--- ダンプしたテーブルの制約
+-- Constraints for dumped tables
 --
 
 --
--- テーブルの制約 `Appointments`
+-- Constraints for table `Appointments`
 --
 ALTER TABLE `Appointments`
   ADD CONSTRAINT `fk_Appointments_Listings` FOREIGN KEY (`Listings_listingID`) REFERENCES `Listings` (`listingID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- テーブルの制約 `Landlords`
+-- Constraints for table `Landlords`
 --
 ALTER TABLE `Landlords`
   ADD CONSTRAINT `fk_Landlords_Users1` FOREIGN KEY (`Users_userID`) REFERENCES `Users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- テーブルの制約 `Listings`
+-- Constraints for table `Listings`
 --
 ALTER TABLE `Listings`
   ADD CONSTRAINT `fk_Listings_Users1` FOREIGN KEY (`Users_userID`) REFERENCES `Users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
