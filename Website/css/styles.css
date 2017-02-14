@@ -30,7 +30,7 @@ nav li a:hover, nav li current {
   padding-bottom: 10%
 }
 
-.leftSideBar {
+.loginBar {
   float: left;
   width: 25%;
 }
@@ -63,4 +63,11 @@ a.button:hover {
 
 body {
   background-color: #EBEDED
+}
+
+@media (max-width: 1004px) {
+  .loginBar {
+    float:none;
+    color: red;
+  }
 }
