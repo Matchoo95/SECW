@@ -1,10 +1,10 @@
 <?php
-  session_start();
-  include './auth.php';
-  include './query.php';
-  include './login.php';
-?>
+  //session_start();
 
+  include './auth.php';
+  include './login.php';
+
+?>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -52,10 +52,34 @@
           </article>
         </section>
         <section id="mainCont" class="mainContent">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante quis est imperdiet condimentum. Nunc sit amet eleifend est. Etiam semper feugiat lorem. Ut dictum ante ut sem tincidunt, ut blandit ante congue. Sed porta blandit augue. Aliquam efficitur massa eu turpis varius, nec efficitur turpis tincidunt. Praesent iaculis blandit eleifend. Donec aliquet elit sed interdum fringilla. Maecenas dapibus non eros eget placerat. Nulla sit amet justo dignissim, sagittis massa ut, sodales enim. Nunc nec mollis tellus. Fusce tellus ex, pretium at tempor ac, sodales nec mauris.
-        </p>
-      </section>
+          <h2>Search Results</h2>
+<?php
+
+$query = $_GET['city']; // assign user input
+
+
+$query = htmlspecialchars($query); // converts html special characters
+
+echo "<p>.$query</p>";
+
+// search address fields for user input
+$sql = "SELECT * FROM Listings WHERE (`city` LIKE '%".$query."%')";
+//OR (`addressLineOne` LIKE '%".$query."%') OR (`addressLineTwo` LIKE '%".$query."%') OR (`county` LIKE '%".$query."%')";
+
+$input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
+
+  if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
+    while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
+      echo "<p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
+      ".$result['city']."</h3>".$result['information']."</p>";
+    }
+    }else{ // no results then print the following
+      echo "Sorry, we couldn't find any results.
+        Please refine your search and try again.";
+  }
+
+?>
+        </section>
     </main>
     <footer>
       <p>

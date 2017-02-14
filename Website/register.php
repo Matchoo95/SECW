@@ -44,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         </nav>
   </header>
     <main>
-        <section class="leftSideBar">
+        <section class="loginBar">
           <article id="register">
             <form id="register" onsubmit="return validateRegisterForm()"
             method="post" accept-charset="UTF-8">
@@ -67,16 +67,16 @@ if (isset($_POST['username']) && isset($_POST['password'])){
                   <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
 
                   <br />
-                
-                
+
+
                   <label for='phone'>Contact Number:</label>
                   <input type='text' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
-                
+
                   <br />
 
                   <label for='username'>Username:</label>
                   <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-  
+
 
                   <br />
 

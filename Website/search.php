@@ -1,11 +1,8 @@
 <?php
-  session_start();
-
+  //session_start();
   include './auth.php';
-  include './query.php';
   include './login.php';
 ?>
-
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -32,7 +29,7 @@
         </nav>
   </header>
     <main>
-        <section class="leftSideBar">
+        <section class="loginBar">
           <article id="signin">
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
@@ -53,8 +50,22 @@
           </article>
         </section>
         <section id="mainCont" class="mainContent">
-          <h2>Search</h2>
-          <p>Please enter criteria for your search.</p>
+          <form action="searchresults.php" method="get">
+            <h2>Search</h2>
+            <p>Please enter criteria for your search.</p>
+            <label for'city'>City</label>
+            <input type="text" name="city" />
+            <label for'type'>Accomodation Type</label>
+            <input type="text" name="type" />
+            <label for'bedroom'>Number of Bedrooms</label>
+            <input type="text" name="bedroom" />
+            <label for'min'>Minimum Price</label>
+            <input type="text" name="min" />
+            <label for'max'>Maximum Price</label>
+            <input type="text" name="max" />
+                <br />
+            <input type="submit" value="Search" />
+          </form>
 
         </section>
     </main>

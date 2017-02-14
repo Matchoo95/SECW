@@ -31,7 +31,7 @@
         </nav>
   </header>
     <main>
-        <section class="leftSideBar">
+        <section class="loginBar">
           <article id="signin">
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
