@@ -9,12 +9,12 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `phone`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$username', '$password')";
+    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `phone`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$phone', '$username', '$password')";
     $result = mysqli_query($connect, $sql);
     if($result){
       $passmsg = "Your Account Has Been Created.";
     }else{
-      $failmsg = "Registration Failed" . mysqli_error($link);;
+      $failmsg = "Registration Failed" . mysqli_error($connect);
     }
   }
 ?>
