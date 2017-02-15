@@ -49,25 +49,36 @@
             </form>
           </article>
         </section>
-        <section id="mainCont" class="mainContent">
+        <section id="searchResults" class="searchResults">
           <form action="searchresults.php" method="get">
-            <h2>Search</h2>
-            <p>Please enter criteria for your search.</p>
-            <h1>ONLY CITY WORKS AT THE MOMENT</h1>
-            <label for'city'>City</label>
-            <input type="text" name="city" />
-            <label for'type'>Accomodation Type</label>
-            <input type="text" name="type" />
-            <label for'bedroom'>Number of Bedrooms</label>
-            <input type="text" name="bedroom" />
-            <label for'min'>Minimum Price</label>
-            <input type="text" name="min" />
-            <label for'max'>Maximum Price</label>
-            <input type="text" name="max" />
-                <br />
-            <input type="submit" value="Search" />
+            <fieldset>
+              <legend><h2>Search</h2></legend>
+                <p>Please enter criteria for your search.</p>
+                <label for="location">Location</label>
+                <input type="text" name="location" />
+                <label for="type">Type</label>
+                <input type="text" name="type" />
+                <label for="bedroom">Bedrooms</label>
+                <select name="bedroom">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+                <label for="min">Min Price</label>
+                <input type="number" name="min" />
+                <label for="max">Max Price</label>
+                <input type="number" name="max" />
+                    <br />
+                <input type="submit" value="Search" />
+            </fieldset>
           </form>
-
         </section>
     </main>
     <footer>

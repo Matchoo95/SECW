@@ -83,13 +83,13 @@ if (isset($_POST['username']) && isset($_POST['password'])){
                   <br />
 
                   <label for='email'>Email Address:</label>
-                  <input type='text' name='email' id='email' maxlength="50" placeholder="Email Address" required/>
+                  <input type='text' name='email' id='email' maxlength="50" placeholder="name@domain.com" required/>
 
                   <br />
 
 
                   <label for='phone'>Contact Number:</label>
-                  <input type='text' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
+                  <input type='tel' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
 
                   <br />
 

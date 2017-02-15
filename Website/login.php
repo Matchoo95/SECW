@@ -19,7 +19,7 @@ if(isset($_POST['username']) and isset($_POST['password']))
 
   if ($count == 1){
     $_SESSION['username'] = $username;
-    header('Refresh: 0;url=controlPanel.php');
+    header('Refresh: 0;url=index.php');
   }else{
     echo "<br />Email or password entered is incorrect.";
   }

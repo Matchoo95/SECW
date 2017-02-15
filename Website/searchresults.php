@@ -56,9 +56,9 @@
 <?php
 
   // prevent sql injectsions
- $city = trim($_POST['city']);
- $city = strip_tags($city);
- $city = htmlspecialchars($city);
+ $location = trim($_POST['location']);
+ $location = strip_tags($location);
+ $location = htmlspecialchars($location);
 
  $bedroom = trim($_POST['bedroom']);
  $bedroom = strip_tags($bedroom);
@@ -76,27 +76,25 @@
  $min = strip_tags($min);
  $min = htmlspecialchars($min);
 
-//$query = $city . $bedroom . $type . $max . $min;
-$query = $city;
-
-echo "<p>You searched for <b>$query</b></p>";
+//$query = $location . $bedroom . $type . $max . $min;
+$query = $location;
 
 // search address fields for user input
-$sql = "SELECT * FROM Listings WHERE (`city` LIKE '%".$query."%')";
-//OR (`addressLineOne` LIKE '%".$query."%') OR (`addressLineTwo` LIKE '%".$query."%') OR (`county` LIKE '%".$query."%')";
+$sql = "SELECT * FROM Listings WHERE (`city` LIKE '%".$query."%') OR (`addressLineOne` LIKE '%".$query."%') OR (`addressLineTwo` LIKE '%".$query."%') OR (`county` LIKE '%".$query."%')";
 
 $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
 
   if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
     while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
       echo "<p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
-      ".$result['city']."</h3>".$result['information']."</p>";
+      ".$result['location']."</h3>".$result['information']."</p>";
     }
     }else{ // no results then print the following
       echo "Sorry, we couldn't find any results.
         Please refine your search and try again.";
   }
-
+  // close the connection
+  mysqli_close($connect)
 ?>
         </section>
     </main>
