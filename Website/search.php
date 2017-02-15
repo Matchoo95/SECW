@@ -1,7 +1,6 @@
 <?php
-  //session_start();
+  session_start();
   include './auth.php';
-  include './login.php';
 ?>
 <html lang="en">
   <head>
@@ -31,6 +30,20 @@
     <main>
         <section class="loginBar">
           <article id="signin">
+            <?php
+
+              include './login.php';
+
+              // if signed in then hide sign in form
+              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+                ?>
+                <style type="text/css">#login{display:none;}</style>
+                <?php
+                $username = $_SESSION['username'];
+                echo "<br />Hey there, " . $username . ".";
+                echo "<br /><a href='logout.php'>Logout</a>";
+              }
+            ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
 

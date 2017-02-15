@@ -66,45 +66,77 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         <section class="loginBar">
           <article id="register">
             <form id="register" onsubmit="return validateRegisterForm()"
-            method="post" accept-charset="UTF-8">
+            method="post" accept-charset="UTF-8" class="floatLeft">
               <!-- output pass or fail messages to user-->
               <?php if(isset($passmsg)){ echo $passmsg;}?>
               <?php if(isset($failmsg)){ echo $failmsg;}?>
               <h2>Register Form</h2>
-              <h3>Please Fill in All Boxes</h3>
-                  <label for='firstname'>First Name:</label>
-                  <input type='text' name='firstname' id='firstname' maxlength="100" placeholder="First Name" required/>
-
-                  <br />
-
-                  <label for='lastname'>Last Name:</label>
-                  <input type='text' name='lastname' id='lastname' maxlength="100" placeholder="Last Name" required/>
-
-                  <br />
-
-                  <label for='email'>Email Address:</label>
-                  <input type='text' name='email' id='email' maxlength="50" placeholder="name@domain.com" required/>
-
-                  <br />
-
-
-                  <label for='phone'>Contact Number:</label>
-                  <input type='tel' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
-
-                  <br />
-
-                  <label for='username'>Username:</label>
-                  <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-
-
-                  <br />
-
-                  <label for='password'>Password:</label>
-                  <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
-
-                  <br />
-
-                  <button type='submit' name='Submit' value='Submit'>Register</button>
+                <table>
+                  <tr>
+                    <h3>Please Fill in All Boxes</h3>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='firstname'>First Name:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='firstname' id='firstname' maxlength="100" placeholder="First Name" required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='lastname'>Last Name:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='lastname' id='lastname' maxlength="100" placeholder="Last Name" required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='email'>Email Address:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='email' id='email' maxlength="50" placeholder="name@domain.com" required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='phone'>Contact Number:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='tel' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='username'>Username:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='password'>Password:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
+                    </th>
+                  </tr>
+                </table>
+              <button type='submit' name='Submit' value='Submit'>Register</button>
             </form>
           </article>
         </section>

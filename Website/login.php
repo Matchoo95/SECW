@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-include './auth.php';
+session_start();
 
 if(isset($_POST['username']) and isset($_POST['password']))
 {
@@ -18,16 +17,11 @@ if(isset($_POST['username']) and isset($_POST['password']))
   $count = mysqli_num_rows($result);
 
   if ($count == 1){
+    $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
     header('Refresh: 0;url=index.php');
   }else{
     echo "<br />Email or password entered is incorrect.";
   }
-}
-
-if(isset($_SESSION['username'])){
-  $username = $_SESSION['username'];
-  echo "<br />Hey there, " . $username . ".";
-  echo "<br /><a href='logout.php'>Logout</a>";
 }
 ?>

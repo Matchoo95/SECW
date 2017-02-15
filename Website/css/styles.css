@@ -36,9 +36,21 @@ nav li a:hover, nav li current {
 }
 
 label {
-  display: inline-block;
   width: 70px;
   text-align: right;
+}
+
+th, td {
+  font-size: 12px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: left;
+  background-color: inherit;
+}
+
+.floatLeft{
+  float: left;
 }
 
 /*TODO change px to em or decide on other form of sizing*/
@@ -70,10 +82,11 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: relative;
+  border: 0.5em;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: -50;
   text-align: center;
 }
 
