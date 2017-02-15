@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include './auth.php';
+session_start();
+include './auth.php';
 ?>
 
 <html lang="en">
@@ -32,7 +32,6 @@
         <section class="loginBar">
           <article id="signin">
             <?php
-
               include './login.php';
 
               // if signed in then hide sign in form
