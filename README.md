@@ -10,6 +10,13 @@ This system will be designed as an online platform with two purposes: landlords 
 We have our own webserver hosting the project. Here we are using phpmyadmin to maintain the database. The code of which is updated and saved in this repo as well.
 You can view the current state of the system here http://coursework.matthewhawkins.co/.
 
+# TO DO
+- Change layout
+- Allow users to change their account settings
+- Add a control panel for landlords
+- Increase security by encrypting passwords (salt) and preventing sql injections
+- Optimise code
+
 # Contributors
 
 Matchoo95 - Matthew Hawkins
