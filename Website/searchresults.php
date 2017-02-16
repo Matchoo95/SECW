@@ -141,7 +141,7 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
   echo $sql;
 
   // close the connection
-  mysqli_close($connect)
+  mysqli_close($connect);
 ?>
         </section>
     </main>
