@@ -66,6 +66,10 @@
         </article>
     </section>
     </main>
-    <footer>test</footer>
+    <footer>
+      <p>
+        Edu Home
+      </p>
+    </footer>
   </body>
 </html>

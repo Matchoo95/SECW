@@ -143,7 +143,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     </main>
     <footer>
       <p>
-        FOOTER
+        Edu Home
       </p>
     </footer>
   </body>

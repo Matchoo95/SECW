@@ -147,7 +147,7 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
     </main>
     <footer>
       <p>
-        FOOTER
+        Edu Home
       </p>
     </footer>
   </body>

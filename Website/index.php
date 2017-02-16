@@ -71,7 +71,7 @@
     </main>
     <footer>
       <p>
-        FOOTER
+        Edu Home
       </p>
     </footer>
   </body>

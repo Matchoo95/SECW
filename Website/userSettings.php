@@ -161,7 +161,9 @@ mysqli_close($connect);
 ?>
   </main>
   <footer>
-    FOOTER
+    <p>
+      Edu Home
+    </p>
   </footer>
   </body>
 </html>
