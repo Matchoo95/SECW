@@ -127,10 +127,10 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $sql = "SELECT * FROM Listings
     WHERE (`bedroom` = '".$bed."')
     AND (`type` = '".$type."')";
-*/
 
 
-    // TODO fix sql syntax error
+
+    // TODO fix sql syntax error, doesn't work yet
     if(!empty($email)){
       $sql = "UPDATE `Users` SET email=".$email." WHERE `username` = ".$username."";
     }
@@ -151,6 +151,8 @@ if (isset($_POST['username']) && isset($_POST['password'])){
   echo $sql;
   echo $email;
   echo $username;
+
+  */
 
 mysqli_close($connect);
 ?>
