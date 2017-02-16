@@ -11,7 +11,7 @@ We have our own webserver hosting the project. Here we are using phpmyadmin to m
 You can view the current state of the system here http://coursework.matthewhawkins.co/.
 
 # TO DO
-- Change layout
+- Improve layout
 - Allow users to change their account settings
 - Add a control panel for landlords
 - Increase security by encrypting passwords (salt) and preventing sql injections
