@@ -66,44 +66,79 @@ include './auth.php';
           <h2>Search Results</h2>
 <?php
 
-  // prevent sql injectsions
- $location = trim($_POST['location']);
- $location = strip_tags($location);
- $location = htmlspecialchars($location);
+// prevent sql injectsions
+$location = trim($_POST['location']);
+$location = strip_tags($location);
+$location = htmlspecialchars($location);
 
- $bedroom = trim($_POST['bedroom']);
- $bedroom = strip_tags($bedroom);
- $bedroom = htmlspecialchars($bedroom);
+$bedroom = trim($_POST['bedroom']);
+$bedroom = strip_tags($bedroom);
+$bedroom = htmlspecialchars($bedroom);
 
- $type = trim($_POST['type']);
- $type = strip_tags($type);
- $type = htmlspecialchars($type);
+$accomadationType = trim($_POST['type']);
+$accomadationType = strip_tags($accomadationType);
+$accomadationType = htmlspecialchars($accomadationType);
 
- $max = trim($_POST['max']);
- $max = strip_tags($max);
- $max = htmlspecialchars($max);
+$maximum = trim($_POST['max']);
+$maximum = strip_tags($maximum);
+$maximum = htmlspecialchars($maximum);
 
- $min = trim($_POST['min']);
- $min = strip_tags($min);
- $min = htmlspecialchars($min);
+$minimum = trim($_POST['min']);
+$minimum = strip_tags($minimum);
+$minimum = htmlspecialchars($minimum);
 
-//$query = $location . $bedroom . $type . $max . $min;
-$query = $location;
+$loc = $location;
+$bed = $bedroom;
+$type = $accomadationType;
+$max = $maximum;
+$min = $minimum;
 
-// search address fields for user input
-$sql = "SELECT * FROM Listings WHERE (`city` LIKE '%".$query."%') OR (`addressLineOne` LIKE '%".$query."%') OR (`addressLineTwo` LIKE '%".$query."%') OR (`county` LIKE '%".$query."%')";
+// build query
+$sql = "SELECT * FROM Listings
+WHERE (`bedroom` = '".$bed."')
+AND (`type` = '".$type."')";
 
+if(!empty($loc)){
+  $sql .= " AND (`city` LIKE '%".$loc."%' OR `addressLineOne` LIKE '%".$loc."%' OR `addressLineTwo` LIKE '%".$loc."%' OR `county` LIKE '%".$loc."%')";
+}
+if(!empty($max)){
+  $sql .= " AND (`price` <= '".$max."')";
+}
+if(!empty($min)){
+  $sql .= " AND (`price` >= '".$min."')";
+}
+$sql .= " ORDER BY price;";
+
+
+/*
+$sql = "SELECT * FROM Listings
+WHERE (`bedroom` = '".$bed."')
+AND (`type` = '".$type."')
+AND (`city` LIKE '%".$loc."%')
+OR (`addressLineOne` LIKE '%".$loc."%')
+OR (`addressLineTwo` LIKE '%".$loc."%')
+OR (`county` LIKE '%".$loc."%')
+ORDER BY price;";
+*/
+
+// send query to database and return error if it fails
 $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
-
+  // output results
   if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
     while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
       echo "<p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
-      ".$result['location']."</h3>".$result['information']."</p>";
+      ".$result['location']."</h3><h4>£".$result['price']."
+      - Bedrooms: ".$result['bedroom']."</h4>".$result['information']."
+      </p><br /><hr />";
     }
     }else{ // no results then print the following
       echo "Sorry, we couldn't find any results.
         Please refine your search and try again.";
   }
+  // TODO remove later
+  echo "For debugging: ";
+  echo $sql;
+
   // close the connection
   mysqli_close($connect)
 ?>
