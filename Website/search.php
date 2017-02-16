@@ -42,6 +42,7 @@ include './auth.php';
                 $username = $_SESSION['username'];
                 echo "<br />Hey there, " . $username . ".";
                 echo "<br /><a href='logout.php'>Logout</a>";
+                echo "<br /><a href='userSettings.php'>Change Settings</a>";
               }
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
