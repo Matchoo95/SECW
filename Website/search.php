@@ -65,12 +65,18 @@ include './auth.php';
         <section id="searchResults" class="searchResults">
           <form action="searchresults.php" method="get">
             <fieldset>
-              <legend><h2>Search</h2></legend>
+              <legend><h3>Search</h3></legend>
                 <p>Please enter criteria for your search.</p>
                 <label for="location">Location</label>
                 <input type="text" name="location" />
-                <label for="type">Type</label>
-                <input type="text" name="type" />
+                <select name="type">
+                  <option value="Studio Flat" selected>Studio Flat</option>
+                  <option value="Flat">Flat</option>
+                  <option value="Detached">Detached</option>
+                  <option value="Semi-detached">Semi-detached</option>
+                  <option value="Terraced">Terraced</option>
+                  <option value="Bungalow">Bungalow</option>
+                </select>
                 <label for="bedroom">Bedrooms</label>
                 <select name="bedroom">
                   <option value="1" selected>1</option>
