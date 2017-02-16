@@ -36,7 +36,6 @@ nav li a:hover, nav li current {
 }
 
 label {
-  display: inline-block;
   width: 70px;
   text-align: right;
 }
