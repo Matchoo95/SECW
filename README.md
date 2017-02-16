@@ -2,7 +2,7 @@
 Software Engineering Team 9D
 
 # Description
-The system is a web based search engine to allow users to find houses while renters and sellers will be able to upload information about vacancies.
+The system is a web based search engine which allows users to find houses while renters and sellers will be able to upload information about vacancies.
 
 This system will be designed as an online platform with two purposes: landlords can advertise their vacant student homes to students, and students will be able to browse through houses. Landlords will have a control panel where they can add, edit and delete vacancies. Students will be able to easily search and compare many different types of student housing, ensuring they find the vacancy that suits them best.
 
