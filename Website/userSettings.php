@@ -3,7 +3,7 @@ session_start();
 include './auth.php';
 include './login.php';
 
-// if signed in then hide sign sin form
+// if signed in then hide sign in form
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
   ?>
   <style type="text/css">#login{display:none;}</style>
@@ -11,7 +11,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
   $username = $_SESSION['username'];
   echo "<br />Hey there, " . $username . ".";
   echo "<br /><a href='logout.php'>Logout</a>";
-  echo "<br /><a href='userSettings.php'>Change Settings</a>";
 }
 
 if(!isset($_SESSION['username'])){
@@ -54,7 +53,10 @@ if(!isset($_SESSION['username'])){
   <body>
     <main>
       <header>
-        <img src="Media/placeholderbanner.png" alt="banner">
+        <h1 class="logo">
+          <a href="index.php">Edu Home</a> <!--feel free to change to a image later-->
+        </h1>
+        <!--<img src="Media/placeholderbanner.png" alt="banner">-->
       </header>
       <nav class="navigation">
         <ul>
@@ -65,42 +67,42 @@ if(!isset($_SESSION['username'])){
            <li ><a href="register.php">Register</a></li>
         </ul>
       </nav>
-    <section>
+      <section class="loginBar">
+        <article id="signin">
+        </article>
+      </section>
+      <section>
+          <h3>Change User Settings</h3>
+          <h4>Change E-mail Address</h4>
+          <form method='post' accept-charset='UTF-8'>
+            <label for='email'>New Email Address:</label>
+            <input type='text' name='email' id='email' maxlength="50" placeholder="name@domain.com" required/>
+            <br />
+            <button type='submit' name='Submit' value='Change'>Change</button>
+          </form>
+        </section>
 
-      <h3>Change User Settings</h3>
+        <section>
+          <h4>Change Password</h4>
+          <form method='post' accept-charset='UTF-8'>
+            <label for='password2'>Old Password:</label>
+            <input type='password2' name='password2' id='password2' maxlength="50" placeholder="Password" required/>
+            <br />
+            <label for='newPassword'>New Password:</label>
+            <input type='newPassword' name='newPassword' id='newPassword' maxlength="50" placeholder="Password" required/>
+            <br />
+            <button type='submit' name='Submit' value='Change'>Change</button>
+          </form>
+        </section>
 
-      <h4>Change E-mail Address</h4>
-
-      <form method='post' accept-charset='UTF-8'>
-        <label for='email'>New Email Address:</label>
-        <input type='text' name='email' id='email' maxlength="50" placeholder="name@domain.com" required/>
-        <br />
-        <button type='submit' name='Submit' value='Change'>Change</button>
-
-      </form>
-    </section>
-
-    <section>
-      <h4>Change Password</h4>
-      <form method='post' accept-charset='UTF-8'>
-        <label for='password2'>Old Password:</label>
-        <input type='password2' name='password2' id='password2' maxlength="50" placeholder="Password" required/>
-        <br />
-        <label for='newPassword'>New Password:</label>
-        <input type='newPassword' name='newPassword' id='newPassword' maxlength="50" placeholder="Password" required/>
-        <br />
-        <button type='submit' name='Submit' value='Change'>Change</button>
-      </form>
-    </section>
-
-    <section>
-      <h4>Terminate account</h4>
-      <form method='post' accept-charset='UTF-8'>
-        <button type='submit' name='Submit' value='Delete Account'>Delete Account</button>
-      </form>
-    </section>
+        <section>
+          <h4>Terminate account</h4>
+          <form method='post' accept-charset='UTF-8'>
+            <button type='submit' name='Submit' value='Delete Account'>Delete Account</button>
+          </form>
+        </section>
 <?php
-
+/*
 if (isset($_POST['username']) && isset($_POST['password'])){
     // prevent sql injectsions
     $email = trim($_POST['email']);
@@ -123,7 +125,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $newPassword = strip_tags($newPassword);
     $newPassword = htmlspecialchars($newPassword);
 
-/*
+
     $sql = "SELECT * FROM Listings
     WHERE (`bedroom` = '".$bed."')
     AND (`type` = '".$type."')";
@@ -152,11 +154,11 @@ if (isset($_POST['username']) && isset($_POST['password'])){
   echo $email;
   echo $username;
 
-  */
+
 
 mysqli_close($connect);
+  */
 ?>
-
   </main>
   <footer>
     FOOTER

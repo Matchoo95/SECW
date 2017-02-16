@@ -41,7 +41,7 @@ include './auth.php';
               $username = $_SESSION['username'];
               echo "<br />Hey there, " . $username . ".";
               echo "<br /><a href='logout.php'>Logout</a>";
-              echo "<br /><a href='userSettings.php'>Change Settings</a>";
+              echo "<br /><a href='usersettings.php'>Change Settings</a>";
             }
           ?>
           <article id="signin">
