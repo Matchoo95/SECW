@@ -94,27 +94,32 @@ $max = $maximum;
 $min = $minimum;
 
 // build query
-//$query = "SELECT * FROM Listings WHERE (`bedroom` = '".$bedroom."')";// AND type = ".$type." AND (city LIKE '%".$location."%' OR addressLineOne LIKE '%".$location."%' OR addressLineTwo LIKE '%".$location."%' OR county LIKE '%".$location."%') ORDER BY price;";
-/*
-if(!empty($location)){
-  $query .= " AND (`city` LIKE '%".$location."%' OR `addressLineOne` LIKE '%".$location."%' OR `addressLineTwo` LIKE '%".$location."%' OR `county` LIKE '%".$location."%')";
+$sql = "SELECT * FROM Listings
+WHERE (`bedroom` = '".$bed."')
+AND (`type` = '".$type."')";
+
+if(!empty($loc)){
+  $sql .= " AND (`city` LIKE '%".$loc."%' OR `addressLineOne` LIKE '%".$loc."%' OR `addressLineTwo` LIKE '%".$loc."%' OR `county` LIKE '%".$loc."%')";
 }
 if(!empty($max)){
-  $query .= " AND (`price` <= '%".$max."%')";
+  $sql .= " AND (`price` <= '".$max."')";
 }
 if(!empty($min)){
-  $query .= " AND (`price` >= '%".$min."%')";
+  $sql .= " AND (`price` >= '".$min."')";
 }
-*/
+$sql .= " ORDER BY price;";
 
-//$query .= " ORDER BY price;";
 
-// search address fields for user input
+/*
 $sql = "SELECT * FROM Listings
-WHERE (`city` LIKE '%".$loc."%')
+WHERE (`bedroom` = '".$bed."')
+AND (`type` = '".$type."')
+AND (`city` LIKE '%".$loc."%')
 OR (`addressLineOne` LIKE '%".$loc."%')
 OR (`addressLineTwo` LIKE '%".$loc."%')
-OR (`county` LIKE '%".$loc."%')";
+OR (`county` LIKE '%".$loc."%')
+ORDER BY price;";
+*/
 
 // send query to database and return error if it fails
 $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
@@ -130,8 +135,10 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
       echo "Sorry, we couldn't find any results.
         Please refine your search and try again.";
   }
-
+  // TODO remove later
+  echo "For debugging: ";
   echo $sql;
+
   // close the connection
   mysqli_close($connect)
 ?>

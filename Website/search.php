@@ -63,15 +63,15 @@ include './auth.php';
           </article>
         </section>
         <section id="searchResults" class="searchResults">
-          <form action="searchresults.php" method="get">
+          <form action="searchresults.php" method="post">
             <fieldset>
               <legend><h3>Search</h3></legend>
                 <p>Please enter criteria for your search.</p>
                 <label for="location">Location</label>
                 <input type="text" name="location" />
+                <label for="type">Type</label>
                 <select name="type">
-                  <option value="Studio Flat" selected>Studio Flat</option>
-                  <option value="Flat">Flat</option>
+                  <option value="Flat" selected>Flat</option>
                   <option value="Detached">Detached</option>
                   <option value="Semi-detached">Semi-detached</option>
                   <option value="Terraced">Terraced</option>
