@@ -26,5 +26,9 @@ GuillyVds - Guillaume Van de Sype
 
 bowtri - Josh Bowen
 
+moulouD24 - Mouloud Diram
+
+ed-peso - Edward Bonsu
+
 
 All images have been created by us or are royalty free images from https://pixabay.com/.
