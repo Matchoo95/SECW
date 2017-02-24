@@ -54,7 +54,7 @@ if(!isset($_SESSION['username'])){
     <main>
       <header>
         <h1 class="logo">
-          <a href="index.php">Edu Home</a> <!--feel free to change to a image later-->
+          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
         </h1>
         <!--<img src="Media/placeholderbanner.png" alt="banner">-->
       </header>

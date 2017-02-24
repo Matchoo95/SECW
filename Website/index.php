@@ -15,9 +15,7 @@
 
 <body>
   <header>
-    <h1 class="logo">
-      <a href="index.php">Edu Home</a> <!--feel free to change to a image later-->
-    </h1>
+    <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
         <nav class="navigation">
           <ul>
              <li class="active"><a href="index.php">Home</a></li>

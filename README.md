@@ -26,5 +26,14 @@ GuillyVds - Guillaume Van de Sype
 
 bowtri - Josh Bowen
 
+moulouD24 - Mouloud Diram
+
+ed-peso - Edward Bonsu
+
+# Prototype Demo
+
+Prototype demo video of the current system can be found here - https://www.youtube.com/watch?v=jhTArIEU9UQ&feature=youtu.be
+
+# Images and Media
 
 All images have been created by us or are royalty free images from https://pixabay.com/.
