@@ -45,6 +45,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="javascript/validate.js"></script>
 </head>
 
 <body>
@@ -65,9 +66,12 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     <main>
         <section class="loginBar">
           <article id="register">
-            <form id="register" onsubmit="return validateRegisterForm()"
-            method="post" accept-charset="UTF-8" class="floatLeft">
+            <div id="errorList" style="display:Block"></div>
+            <!--<form id="register" on`submit`="return validateRegisterForm()"
+            method="post" accept-charset="UTF-8" class="floatLeft">-->
+            <!-- Commented because I am testing validate.js and don't know if this will be necessary-->
               <!-- output pass or fail messages to user-->
+              <form id="register" name="register_form">
               <?php if(isset($passmsg)){ echo $passmsg;}?>
               <?php if(isset($failmsg)){ echo $failmsg;}?>
               <h2>Register Form</h2>
@@ -146,6 +150,45 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         Edu Home
       </p>
     </footer>
+    <script type="text/javascript">
+      var validator = new FormValidator('register_form', [{
+          name: 'firstname',
+          display: 'first name',
+          rules: 'required|alpha_numeric'
+        }, {
+          name: 'lastname',
+          display: 'last name',
+          rules: 'required|alpha_numeric'
+        }, {
+          name: 'password',
+          rules: 'required|alpha_numeric'
+        }, {
+          name: 'email',
+          rules: 'valid_email',
+        }, {
+          name: 'username',
+          rules: 'required|alpha_numeric',
+        }, {
+          name: 'phone',
+          display: 'phone',
+          rules: 'required|numeric'
+        }], function(errors, event) {
+          if (errors.length > 0) {
+            for (var i = 0; i < errors.length; i++) {
+              errorBox = document.getElementById("errorList");
+              errorBox.append(errors[i].message + '<br />');
+            }
+            errorBox.fadeIn(200);
+          } else {
+              /*errorBox.css({display:'none'});*/
+            }
+      if (evt && evt.preventDefault) {
+          evt.preventDefault();
+      } else if (event) {
+        event.returnValue = false;
+      }
+        });
+    </script>
   </body>
   <script src="javascript/script.js"></script>
 </html>
