@@ -8,14 +8,14 @@ include './auth.php';
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
   <header>
     <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
+      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
     </h1>
         <nav class="navigation">
           <ul>
@@ -68,35 +68,29 @@ include './auth.php';
 <?php
 
 // prevent sql injectsions
-$location = trim($_POST['location']);
-$location = strip_tags($location);
-$location = htmlspecialchars($location);
+$loc = trim($_POST['location']);
+$loc = strip_tags($loc);
+$loc = htmlspecialchars($loc);
 
-$bedroom = trim($_POST['bedroom']);
-$bedroom = strip_tags($bedroom);
-$bedroom = htmlspecialchars($bedroom);
+$bed = trim($_POST['bedroom']);
+$bed = strip_tags($bed);
+$bed = htmlspecialchars($bed);
 
-$accomadationType = trim($_POST['type']);
-$accomadationType = strip_tags($accomadationType);
-$accomadationType = htmlspecialchars($accomadationType);
+$type = trim($_POST['type']);
+$type = strip_tags($type);
+$type = htmlspecialchars($type);
 
-$maximum = trim($_POST['max']);
-$maximum = strip_tags($maximum);
-$maximum = htmlspecialchars($maximum);
+$max = trim($_POST['max']);
+$max = strip_tags($max);
+$max = htmlspecialchars($max);
 
-$minimum = trim($_POST['min']);
-$minimum = strip_tags($minimum);
-$minimum = htmlspecialchars($minimum);
-
-$loc = $location;
-$bed = $bedroom;
-$type = $accomadationType;
-$max = $maximum;
-$min = $minimum;
+$min = trim($_POST['min']);
+$min = strip_tags($min);
+$min = htmlspecialchars($min);
 
 // build query
 $sql = "SELECT * FROM Listings
-WHERE (`bedroom` = '".$bed."')
+WHERE (`bed` = '".$bed."')
 AND (`type` = '".$type."')";
 
 if(!empty($loc)){
@@ -110,26 +104,14 @@ if(!empty($min)){
 }
 $sql .= " ORDER BY price;";
 
-
-/*
-$sql = "SELECT * FROM Listings
-WHERE (`bedroom` = '".$bed."')
-AND (`type` = '".$type."')
-AND (`city` LIKE '%".$loc."%')
-OR (`addressLineOne` LIKE '%".$loc."%')
-OR (`addressLineTwo` LIKE '%".$loc."%')
-OR (`county` LIKE '%".$loc."%')
-ORDER BY price;";
-*/
-
 // send query to database and return error if it fails
 $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
   // output results
   if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
     while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
       echo "<p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
-      ".$result['location']."</h3><h4>£".$result['price']."
-      - Bedrooms: ".$result['bedroom']."</h4>".$result['information']."
+      ".$result['loc']."</h3><h4>£".$result['price']."
+      - beds: ".$result['bed']."</h4>".$result['information']."
       </p><br /><hr />";
     }
     }else{ // no results then print the following
