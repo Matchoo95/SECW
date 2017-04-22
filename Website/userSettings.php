@@ -2,16 +2,7 @@
 session_start();
 include './auth.php';
 include './login.php';
-
-// if signed in then hide sign in form
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-  ?>
-  <style type="text/css">#login{display:none;}</style>
-  <?php
-  $username = $_SESSION['username'];
-  echo "<br />Hey there, " . $username . ".";
-  echo "<br /><a href='logout.php'>Logout</a>";
-}
+include './hideLogin.php';
 
 if(!isset($_SESSION['username'])){
   echo "<center>
@@ -73,9 +64,9 @@ if(!isset($_SESSION['username'])){
       <section>
           <h3>Change Settings</h3>
           <form action="change.php" method="post" accept-charset='UTF-8'>
-          New Email: <input type="text" name="email"><br>
-          New Password: <input type="text" name="password"><br>
-          <input type="submit">
+            New Email: <input type="text" name="email"><br>
+            New Password: <input type="text" name="password"><br>
+            <button type='submit' name='change' value='Change Settings'>Change Settings</button>
           </form>
       </section>
 

@@ -30,36 +30,19 @@ include './auth.php';
     <main>
         <section class="loginBar">
           <?php
-
             include './login.php';
-
-            // if signed in then hide sign in form
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-              ?>
-              <style type="text/css">#login{display:none;}</style>
-              <?php
-              $username = $_SESSION['username'];
-              echo "<br />Hey there, " . $username . ".";
-              echo "<br /><a href='logout.php'>Logout</a>";
-              echo "<br /><a href='usersettings.php'>Change Settings</a>";
-            }
+            include './hideLogin.php';
           ?>
           <article id="signin">
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
-
               <label for='username'>Username:</label>
               <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-
               <br />
-
               <label for='password'>Password:</label>
               <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
-
               <br />
-
               <button type='submit' name='Submit' value='Submit'>Sign in</button>
-
             </form>
           </article>
         </section>
@@ -114,14 +97,10 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
       - beds: ".$result['bed']."</h4>".$result['information']."
       </p><br /><hr />";
     }
-    }else{ // no results then print the following
+  }else{ // if no results
       echo "Sorry, we couldn't find any results.
         Please refine your search and try again.";
   }
-  // TODO remove later
-  echo "For debugging: ";
-  echo $sql;
-
   // close the connection
   mysqli_close($connect);
 ?>

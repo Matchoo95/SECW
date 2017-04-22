@@ -15,7 +15,7 @@ include './auth.php';
 <body>
   <header>
     <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
+      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
     </h1>
         <nav class="navigation">
           <ul>
@@ -31,19 +31,8 @@ include './auth.php';
         <section class="loginBar">
           <article id="signin">
             <?php
-
               include './login.php';
-
-              // if signed in then hide sign in form
-              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-                ?>
-                <style type="text/css">#login{display:none;}</style>
-                <?php
-                $username = $_SESSION['username'];
-                echo "<br />Hey there, " . $username . ".";
-                echo "<br /><a href='logout.php'>Logout</a>";
-                echo "<br /><a href='usersettings.php'>Change Settings</a>";
-              }
+              include './hideLogin.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>

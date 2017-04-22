@@ -35,7 +35,7 @@ include './auth.php';
               include './login.php';
 
               // if signed in then hide sign in form
-              if (isset($_SESSION['loggedin']) = true){
+              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
                 ?>
                 <style type="text/css">#login{display:none;}</style>
                 <?php

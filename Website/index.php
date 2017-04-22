@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css">
-</head>
+  </head>
 
 <body>
   <header>
@@ -30,19 +30,8 @@
         <section class="loginBar">
           <article id="signin">
             <?php
-
               include './login.php';
-
-              // if signed in then hide sign in form
-              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-                ?>
-                <style type="text/css">#login{display:none;}</style>
-                <?php
-                $username = $_SESSION['username'];
-                echo "<br />Hey there, " . $username . ".";
-                echo "<br /><a href='logout.php'>Logout</a>";
-                echo "<br /><a href='usersettings.php'>Change Settings</a>";
-              }
+              include './hideLogin.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>

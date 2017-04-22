@@ -33,17 +33,7 @@ include './auth.php';
           <article id="signin">
             <?php
               include './login.php';
-
-              // if signed in then hide sign in form
-              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-                ?>
-                <style type="text/css">#login{display:none;}</style>
-                <?php
-                $username = $_SESSION['username'];
-                echo "<br />Hey there, " . $username . ".";
-                echo "<br /><a href='logout.php'>Logout</a>";
-                echo "<br /><a href='usersettings.php'>Change Settings</a>";
-              }
+              include './hideLogin.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
@@ -66,7 +56,7 @@ include './auth.php';
         <section id="mainCont" class="mainContent">
         <p>
           Edu Home is an online service that allows students to search for accommodation. We strive to provide a quality service, enabling students all around the country to find the housing that they need.
-          We want students to be able to find rent easily with peace of mind. We also want their parents to feel at ease when using our service. 
+          We want students to be able to find rent easily with peace of mind. We also want their parents to feel at ease when using our service.
         </p>
       </section>
     </main>
