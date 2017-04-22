@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db667536964.db.1and1.com
--- Generation Time: Feb 16, 2017 at 03:42 PM
+-- Generation Time: Apr 22, 2017 at 03:47 AM
 -- Server version: 5.5.54-0+deb7u2-log
--- PHP Version: 5.4.45-0+deb7u7
+-- PHP Version: 5.4.45-0+deb7u8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -93,22 +93,21 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `userID` int(25) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) COLLATE latin1_general_ci NOT NULL,
   `password` varchar(45) COLLATE latin1_general_ci NOT NULL,
-  `phone` int(11) DEFAULT NULL,
   `email` varchar(45) COLLATE latin1_general_ci NOT NULL,
   `firstname` varchar(45) COLLATE latin1_general_ci NOT NULL,
   `lastname` varchar(45) COLLATE latin1_general_ci NOT NULL,
+  `accountType` varchar(10) COLLATE latin1_general_ci NOT NULL DEFAULT 'student',
   PRIMARY KEY (`userID`),
   UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `phone` (`phone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=4 ;
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=451 ;
 
 --
 -- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`userID`, `username`, `password`, `phone`, `email`, `firstname`, `lastname`) VALUES
-(1, 'matt', 'matt', 2147483647, 'up769535@myport.ac.uk', 'Matt', 'Hawkins');
+INSERT INTO `Users` (`userID`, `username`, `password`, `email`, `firstname`, `lastname`, `accountType`) VALUES
+(1, 'Matt', '12345', 'up769535@myport.ac.uk', 'Matt', 'Hawkins', 'vendor');
 
 --
 -- Constraints for dumped tables

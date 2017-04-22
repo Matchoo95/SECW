@@ -47,16 +47,15 @@ if(!isset($_SESSION['username'])){
 <html lang ="en">
   <head>
     <meta charset="utf-8">
-    <title>Search Page</title>
+    <title>Change Settings</title>
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <main>
       <header>
         <h1 class="logo">
-          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
+          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
         </h1>
-        <!--<img src="Media/placeholderbanner.png" alt="banner">-->
       </header>
       <nav class="navigation">
         <ul>
@@ -72,7 +71,7 @@ if(!isset($_SESSION['username'])){
         </article>
       </section>
       <section>
-          <h3>Change User Settings</h3>
+          <h3>Change Settings</h3>
           <h4>Change E-mail Address</h4>
           <form method='post' accept-charset='UTF-8'>
             <label for='email'>New Email Address:</label>
@@ -91,74 +90,35 @@ if(!isset($_SESSION['username'])){
             <label for='newPassword'>New Password:</label>
             <input type='newPassword' name='newPassword' id='newPassword' maxlength="50" placeholder="Password" required/>
             <br />
-            <button type='submit' name='Submit' value='Change'>Change</button>
+            <button type='submit' name='change' value='Change'>Change</button>
           </form>
         </section>
 
         <section>
           <h4>Terminate account</h4>
           <form method='post' accept-charset='UTF-8'>
-            <button type='submit' name='Submit' value='Delete Account'>Delete Account</button>
+            <button type='submit' name='delete' value='Delete Account'>Delete Account</button>
           </form>
         </section>
 <?php
-/*
-if (isset($_POST['username']) && isset($_POST['password'])){
-    // prevent sql injectsions
-    $email = trim($_POST['email']);
-    $email = strip_tags($email);
-    $email = htmlspecialchars($email);
 
-    $phone = trim($_POST['phone']);
-    $phone = strip_tags($phone);
-    $phone = htmlspecialchars($phone);
-
-    $password1 = trim($_POST['password']);
-    $password1 = strip_tags($password1);
-    $password1 = htmlspecialchars($password1);
-
-    $password2 = trim($_POST['password']);
-    $password2 = strip_tags($password2);
-    $password2 = htmlspecialchars($password2);
-
-    $newPassword = trim($_POST['$password']);
-    $newPassword = strip_tags($newPassword);
-    $newPassword = htmlspecialchars($newPassword);
-
-
-    $sql = "SELECT * FROM Listings
-    WHERE (`bedroom` = '".$bed."')
-    AND (`type` = '".$type."')";
-
-
-
-    // TODO fix sql syntax error, doesn't work yet
-    if(!empty($email)){
-      $sql = "UPDATE `Users` SET email=".$email." WHERE `username` = ".$username."";
-    }
-    if((!empty($password2)) && (!empty($newPassword))){
-      $sql = "UPDATE `Users` SET password='$password2' WHERE username='$_SESSION['username']'";
-    }
-
-    $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
-
-    if(mysqli_num_rows($input)>0){
-      echo "Your details have been changed";
-    }else{
-      echo "Failed to change details" . mysqli_error($connect);
-    }
+if (isset($_POST['delete'])){
+  $sql = "DELETE FROM `db667536964`.`Users` WHERE $username = `username`";
+  $result = mysqli_query($connect, $sql);
+  if($result){
+    $passmsg = "Your Account Has Been Deleted.";
+    if(isset($passmsg)){ echo $passmsg;}
+    echo("<meta http-equiv='refresh' content='1;url=logout.php'>");
+  }else{
+    $failmsg = "Deletion Failed" . mysqli_error($connect);
+    if(isset($failmsg)){ echo $failmsg;}
   }
-  // TODO remove later
-  echo "For debugging: ";
-  echo $sql;
-  echo $email;
-  echo $username;
+}
 
-
-
-mysqli_close($connect);
-  */
 ?>
+
+
+
   </main>
   <footer>
     <p>

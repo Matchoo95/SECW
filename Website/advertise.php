@@ -16,7 +16,7 @@ include './auth.php';
 <body>
   <header>
     <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
+      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
     </h1>
         <nav class="navigation">
           <ul>
@@ -65,7 +65,8 @@ include './auth.php';
         </section>
         <section id="mainCont" class="mainContent">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante quis est imperdiet condimentum. Nunc sit amet eleifend est. Etiam semper feugiat lorem. Ut dictum ante ut sem tincidunt, ut blandit ante congue. Sed porta blandit augue. Aliquam efficitur massa eu turpis varius, nec efficitur turpis tincidunt. Praesent iaculis blandit eleifend. Donec aliquet elit sed interdum fringilla. Maecenas dapibus non eros eget placerat. Nulla sit amet justo dignissim, sagittis massa ut, sodales enim. Nunc nec mollis tellus. Fusce tellus ex, pretium at tempor ac, sodales nec mauris.
+            If you own a property that you wish to advertise for rent here then please sign up under the register option. Upon sign up, please tick the checkbox for wanting to advertise accommodation.
+            This will set you up with a vendor account and will allow you to upload new listings to be advertised on the website.
           </p>
         </section>
     </main>

@@ -10,6 +10,9 @@ This system will be designed as an online platform with two purposes: landlords 
 We have our own webserver hosting the project. Here we are using phpmyadmin to maintain the database. The code of which is updated and saved in this repo as well.
 You can view the current state of the system here http://coursework.matthewhawkins.co/.
 
+# Installation Instructions
+TODO
+
 # TO DO
 - Create individual pages from search results
 - Allow users to change their account settings
@@ -29,6 +32,8 @@ bowtri - Josh Bowen
 moulouD24 - Mouloud Diram
 
 ed-peso - Edward Bonsu
+
+adrianhhp - Adrian Hong
 
 # Prototype Demo
 

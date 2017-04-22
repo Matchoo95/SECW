@@ -65,7 +65,8 @@ include './auth.php';
         </section>
         <section id="mainCont" class="mainContent">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ante quis est imperdiet condimentum. Nunc sit amet eleifend est. Etiam semper feugiat lorem. Ut dictum ante ut sem tincidunt, ut blandit ante congue. Sed porta blandit augue. Aliquam efficitur massa eu turpis varius, nec efficitur turpis tincidunt. Praesent iaculis blandit eleifend. Donec aliquet elit sed interdum fringilla. Maecenas dapibus non eros eget placerat. Nulla sit amet justo dignissim, sagittis massa ut, sodales enim. Nunc nec mollis tellus. Fusce tellus ex, pretium at tempor ac, sodales nec mauris.
+          Edu Home is an online service that allows students to search for accommodation. We strive to provide a quality service, enabling students all around the country to find the housing that they need.
+          We want students to be able to find rent easily with peace of mind. We also want their parents to feel at ease when using our service. 
         </p>
       </section>
     </main>

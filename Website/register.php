@@ -16,10 +16,6 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $email = strip_tags($email);
     $email = htmlspecialchars($email);
 
-    $phone = trim($_POST['phone']);
-    $phone = strip_tags($phone);
-    $phone = htmlspecialchars($phone);
-
     $username = trim($_POST['username']);
     $username = strip_tags($username);
     $username = htmlspecialchars($username);
@@ -28,7 +24,15 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $password = strip_tags($password);
     $password = htmlspecialchars($password);
 
-    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `phone`, `username`, `password`) VALUES ('$firstname', '$lastname', '$email', '$phone', '$username', '$password')";
+    $accountType = $_POST['accountType'];
+
+    if ($_POST['accountType'] == '1'){
+      $accountType = "vendor";
+    }else{
+      $accountType = "student";
+    }
+
+    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `username`, `password`, accountType) VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$accountType')";
     $result = mysqli_query($connect, $sql);
     if($result){
       $passmsg = "Your Account Has Been Created.";
@@ -50,7 +54,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 <body>
   <header>
     <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a> 
+      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
     </h1>
         <nav class="navigation">
           <ul>
@@ -107,16 +111,6 @@ if (isset($_POST['username']) && isset($_POST['password'])){
                   </tr>
                   <tr>
                     <th>
-                      <label for='phone'>Contact Number:</label>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
-                      <input type='tel' name='phone' id='phone' maxlength="11" placeholder="Phone Number"/>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>
                       <label for='username'>Username:</label>
                     </th>
                   </tr>
@@ -135,6 +129,18 @@ if (isset($_POST['username']) && isset($_POST['password'])){
                       <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
                     </th>
                   </tr>
+                  <tr>
+                    <th>
+                      <label for='accountType'>Please tick if you want to advertise accommodation</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                        <input type="hidden" name="accountType" value="0">
+                        <input type="checkbox" name="accountType" value="1">
+                    </th>
+                  </tr>
+
                 </table>
               <button type='submit' name='Submit' value='Submit'>Register</button>
             </form>
