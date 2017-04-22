@@ -1,0 +1,132 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Arial Black","Arial Bold",sans-serif;
+  list-style-type: none;
+  text-decoration:  none;
+}
+
+html{
+min-height: 100%;
+}
+
+body{
+
+
+background: #e3e3e3; /* fallback for old browsers */
+background: -webkit-linear-gradient( #e3e3e3 ,#9ad3de #); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient( #e3e3e3 , #9ad3de); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+main{
+
+  margin:auto;
+  height: 100%;
+  min-width: 600px;
+  width:75%;
+  opacity: 1.0;
+}
+
+header{background-color:#c9c9c9;}
+
+header img{
+    height:120px;
+    display:block;
+    margin:auto;
+  }
+
+  nav {
+    padding-top:10px;
+    padding-bottom:10px;
+    border: 3px solid Gray;
+    background-color: #89bdd3;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+a, select{
+  margin:10px;
+  color:lightgray;
+  background-color:white;
+  border: 2px solid gray;
+  padding:10px;
+
+
+}
+
+nav  a{font-size:20px;
+    margin:0px;
+    color:lightgray;
+    background-color:white;
+    border: 2px solid gray;
+    padding:10px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+
+
+
+nav a{
+  list-style-type: none;
+  display: inline;
+}
+
+aside{
+  border: 3px solid Gray;
+  background-color: #89bdd3;
+  float:left;
+  min-width: 150px;
+  width:25%;
+  border: 5px solid LightSlateGray;}
+
+h4{margin:10px;}
+
+
+
+
+
+aside select{width:40%}
+aside a{float:right;}
+
+section select{align: right;}
+
+section{
+  float:right;
+  background-color:#9ad3de;
+  width:70%;
+}
+
+section nav li{float:right;}
+
+
+article{height:600px;}
+article img{
+  float:left;
+  display:inline-block;
+  margin:10px;
+  height: 400px;
+  width:  400px;
+}
+
+h3{font-size:30px;
+  }
+
+
+
+article a{
+  float: right;
+}
+
+article p{margin:10px;
+  padding:10px;
+  text-align:justify;
+}
+
+footer{
+  margin-top:105%;
+  background-color:gray;
+  text-align:center;
+  /* footer doesn't work properly yet */
+}

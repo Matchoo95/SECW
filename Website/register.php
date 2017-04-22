@@ -35,7 +35,8 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `username`, `password`, accountType) VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$accountType')";
     $result = mysqli_query($connect, $sql);
     if($result){
-      $passmsg = "Your Account Has Been Created.";
+      echo("<meta http-equiv='refresh' content='3;url=index.php'>");
+      $passmsg = "Your Account Has Been Created. Redirecting to the home page...";
     }else{
       $failmsg = "Registration Failed" . mysqli_error($connect);
     }
