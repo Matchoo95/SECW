@@ -2,7 +2,7 @@
 session_start();
 include './auth.php';
 include './login.php';
-include './hideLogin.php';
+include './hide_login.php';
 
 if(!isset($_SESSION['username'])){
   echo "<center>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['username'])){
       </section>
       <section>
           <h3>Change Settings</h3>
-          <form action="change.php" method="post" accept-charset='UTF-8'>
+          <form action="change_settings.php" method="post" accept-charset='UTF-8'>
             New Email: <input type="text" name="email"><br>
             New Password: <input type="text" name="password"><br>
             <button type='submit' name='change' value='Change Settings'>Change Settings</button>
@@ -72,7 +72,7 @@ if(!isset($_SESSION['username'])){
 
         <section>
           <h4>Terminate account</h4>
-          <form action="deleteAccount.php" method='post' accept-charset='UTF-8'>
+          <form action="delete_account.php" method='post' accept-charset='UTF-8'>
             <button type='submit' name='delete' value='Delete Account'>Delete Account</button>
           </form>
         </section>

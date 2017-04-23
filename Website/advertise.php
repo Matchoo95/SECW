@@ -33,17 +33,7 @@ include './auth.php';
           <article id="signin">
             <?php
               include './login.php';
-
-              // if signed in then hide sign in form
-              if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
-                ?>
-                <style type="text/css">#login{display:none;}</style>
-                <?php
-                $username = $_SESSION['username'];
-                echo "<br />Hey there, " . $username . ".";
-                echo "<br /><a href='logout.php'>Logout</a>";
-                echo "<br /><a href='usersettings.php'>Change Settings</a>";
-              }
+              include './hide_login.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>

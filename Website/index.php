@@ -31,23 +31,17 @@
           <article id="signin">
             <?php
               include './login.php';
-              include './hideLogin.php';
+              include './hide_login.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
-
               <label for='username'>Username:</label>
               <input type='text' name='username' id='username' maxlength="50" placeholder="Username" required autofocus/>
-
               <br />
-
               <label for='password'>Password:</label>
               <input type='password' name='password' id='password' maxlength="50" placeholder="Password" required/>
-
               <br />
-
               <button type='submit' name='Submit' value='Submit'>Sign in</button>
-
             </form>
           </article>
         </section>

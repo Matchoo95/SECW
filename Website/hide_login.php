@@ -8,5 +8,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
   echo "<br />Hey there, " . $username . ".";
   echo "<br /><a href='logout.php'>Logout</a>";
   echo "<br /><a href='usersettings.php'>Change Settings</a>";
+
+  include './control_panel_access.php';
 }
 ?>

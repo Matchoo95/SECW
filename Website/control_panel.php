@@ -2,6 +2,7 @@
   // control panel for landlords
   session_start();
   include './auth.php';
+  include './login_check.php';
 ?>
 
 <html lang="en">

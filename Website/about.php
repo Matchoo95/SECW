@@ -33,7 +33,7 @@ include './auth.php';
           <article id="signin">
             <?php
               include './login.php';
-              include './hideLogin.php';
+              include './hide_login.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>

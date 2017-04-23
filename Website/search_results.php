@@ -31,7 +31,7 @@ include './auth.php';
         <section class="loginBar">
           <?php
             include './login.php';
-            include './hideLogin.php';
+            include './hide_login.php';
           ?>
           <article id="signin">
             <form id='login' method='post' accept-charset='UTF-8'>

@@ -32,7 +32,7 @@ include './auth.php';
           <article id="signin">
             <?php
               include './login.php';
-              include './hideLogin.php';
+              include './hide_login.php';
             ?>
             <form id='login' method='post' accept-charset='UTF-8'>
               <h2>Sign in</h2>
@@ -53,7 +53,7 @@ include './auth.php';
           </article>
         </section>
         <section id="searchResults" class="searchResults">
-          <form action="searchresults.php" method="post">
+          <form action="search_results.php" method="post">
             <fieldset>
               <legend><h3>Search</h3></legend>
                 <p>Please enter criteria for your search.</p>

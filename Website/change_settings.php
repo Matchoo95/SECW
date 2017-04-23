@@ -10,7 +10,7 @@ if (isset($_SESSION['username'])){
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$sql = "UPDATE `db667536964`.`Users` SET password = '$password', email = '$email' WHERE $username = `username`";
+$sql = "UPDATE `db667536964`.`Users` SET password = '$password', email = '$email' WHERE username = '$username'";
 $result = mysqli_query($connect, $sql);
 
 if($result){
