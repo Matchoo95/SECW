@@ -72,9 +72,9 @@ $min = strip_tags($min);
 $min = htmlspecialchars($min);
 
 // build query
-$sql = "SELECT * FROM Listings
-WHERE (`bed` = '".$bed."')
-AND (`type` = '".$type."')";
+$sql = "SELECT * FROM `db667536964`.`Listings`
+WHERE (bedroom = '$bed')
+AND (type = '$type')";
 
 if(!empty($loc)){
   $sql .= " AND (`city` LIKE '%".$loc."%' OR `addressLineOne` LIKE '%".$loc."%' OR `addressLineTwo` LIKE '%".$loc."%' OR `county` LIKE '%".$loc."%')";
@@ -94,7 +94,7 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
     while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
       echo "<p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
       ".$result['loc']."</h3><h4>£".$result['price']."
-      - beds: ".$result['bed']."</h4>".$result['information']."
+      - beds: ".$result['bedroom']."</h4>".$result['information']."
       </p><br /><hr />";
     }
   }else{ // if no results

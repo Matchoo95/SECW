@@ -11,7 +11,7 @@ if(isset($_POST['username']) and isset($_POST['password']))
   $password = strip_tags($password);
   $password = htmlspecialchars($password);
 
-  $sql = "SELECT * FROM Users WHERE username='$username' AND password='$password'";
+  $sql = "SELECT * FROM `db667536964`.`Users` WHERE username='$username' AND password='$password'";
   $result = mysqli_query($connect, $sql) or die(mysqli_error($connect));
   $count = mysqli_num_rows($result);
 

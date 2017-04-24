@@ -15,8 +15,6 @@ TODO
 
 # TO DO
 - Create individual pages from search results
-- Allow users to change their account settings
-- Add a control panel for landlords
 - Improve layout
 - Increase security by encrypting passwords (salt) and preventing sql injections
 - Optimise code
