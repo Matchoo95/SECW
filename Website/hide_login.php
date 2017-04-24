@@ -1,4 +1,6 @@
 <?php
+session_start();
+include './auth.php';
 // if signed in then hide sign in form
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
   ?>
@@ -10,5 +12,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
   echo "<br /><a href='usersettings.php'>Change Settings</a>";
 
   include './control_panel_access.php';
+
+  if ($found == 1){
+    echo "<br /><a href='control_panel.php'>Control Panel</a>";
+  }
 }
 ?>

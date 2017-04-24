@@ -2,6 +2,7 @@
   // control panel for landlords
   session_start();
   include './auth.php';
+  include './control_panel_access.php';
   include './login_check.php';
 ?>
 
@@ -29,8 +30,11 @@
   </header>
     <main>
         <section id="mainCont" class="mainContent">
+<?php
 
 
+
+?>
        </section>
     </main>
     <footer>
