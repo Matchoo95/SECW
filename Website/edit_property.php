@@ -21,12 +21,13 @@
     <nav class="navigation">
           <ul>
              <li class="active"><a href="index.php">Home</a></li>
+             <li ><a href="control_panel.php">Control Panel</a></li>
              <li ><a href="add_property.php">Add a new property</a></li>
              <li ><a href="edit_property.php">Edit a property</a></li>
              <li ><a href="delete_property.php">Delete a property</a></li>
              <li ><a href="logout.php">Logout</a></li>
           </ul>
-        </nav>
+    </nav>
   </header>
     <main>
       <?php echo "Welcome, '$user'"; ?>

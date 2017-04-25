@@ -93,13 +93,13 @@
              <li ><a href="delete_property.php">Delete a property</a></li>
              <li ><a href="logout.php">Logout</a></li>
           </ul>
-        </nav>
+    </nav>
   </header>
     <main>
+      <?php echo "Welcome, '$user'"; ?>
         <section id="mainCont" class="mainContent">
-          <?php echo "Welcome, '$user'"; ?>
           <form id="register" onsubmit="return validateRegisterForm()"
-          method="post" accept-charset="UTF-8" class="floatLeft">
+          method="post" accept-charset="UTF-8">
             <h2>Add a new property listing</h2>
             <p>Information about the property (description):</p>
               <table>

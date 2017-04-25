@@ -17,11 +17,11 @@
   $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
 
   // output results
-  if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
+  if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
     while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
       echo "<br /><p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
       ".$result['loc']."</h3><h4>£".$result['price']."
-      - beds: ".$result['bed']."</h4> Property Identification Number: ".$result['listingID']."</p><br /><hr />";
+      - beds: ".$result['bedroom']."</h4> Property Identification Number: ".$result['listingID']."</p><br /><hr />";
     }
   }else{ // if no results
       echo "You do not have any listings yet. Please add a listing by clicking
