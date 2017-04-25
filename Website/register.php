@@ -1,6 +1,7 @@
 <?php
 session_start();
 include './auth.php';
+
 // if values are entered, put them in database
 if (isset($_POST['username']) && isset($_POST['password'])){
     // prevent sql injectsions

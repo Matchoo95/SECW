@@ -29,37 +29,190 @@
         </nav>
   </header>
     <main>
+      <?php echo "Welcome, '$user'"; ?>
         <section id="mainCont" class="mainContent">
-          <?php echo "Welcome, '$user'"; ?>
-          <h1>Your properties:</h1><hr />
-<?php
-  $userNoQuery = "SELECT userID FROM `db667536964`.`Users` WHERE username='$user'";
-  $userNoQueryResult = mysqli_query($connect, $userNoQuery) or die(mysqli_error($connect));
-  $userNo = mysqli_fetch_assoc($userNoQueryResult);
+          <section>
+              <h3>Change Property Details</h3>
+              <form method="post" accept-charset='UTF-8'>
+                <p>
+                  Please enter the Property Identification Number of the property
+                  of which you wish to edit.
+                </p><br />
+                Property Identification Number: <input type="text" name="PIN"><br>
+                <button type='submit' name='submit' value='Change Details'>Submit</button>
+              </form>
+              <br />
+          </section>
+          <section>
+            <h3>Current Properties</h3>
 
-  $userID = $userNo['userID'];
-  $sql = "SELECT * FROM `db667536964`.`Listings` WHERE Users_userID='$userID'";
 
-  // send query to database and return error if it fails
-  $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
+  <?php
+    // store user input of which property to edit
+    $pin = $_POST['PIN'];
+    // store userID
+    $userID = $_SESSION['Users_userID'];
 
-  // output results
-  if(mysqli_num_rows($input)>0){ // if one or more results returned do this code
-    while($result = mysqli_fetch_array($input)){ // puts data in array then loops the following code
-      echo "<br /><p><h3>".$result['addressLineOne']." ".$result['addressLineTwo']."
-      ".$result['loc']."</h3><h4>£".$result['price']."
-      - beds: ".$result['bed']."</h4> Property Identification Number: ".$result['listingID']."</p><br /><hr />";
+    // get listings that have been created by this user
+    $sql = "SELECT * FROM `db667536964`.`Listings` WHERE Users_userID='$userID' AND listingID='$pin'";
+
+    // send query to database and return error if it fails
+    $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
+
+    // output results
+    if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
+      echo "<section>
+          <h3>Change Details</h3>
+          <form id='edit' onsubmit='return validateRegisterForm()'
+          method='post' accept-charset='UTF-8' class='floatLeft'>
+              <table>
+              <tr>
+                <th>
+                  <p>Information about the property (description):</p>
+                </th>
+              </tr>
+              <tr>
+                </th>
+                  <textarea for='information' placeholder='Information'></textarea>
+                </th>
+              </tr>
+                <tr>
+                  <th>
+                    <label for='photoLink'>Photo URL (optional):</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='text' name='photoLink' id='photoLink' maxlength='100' placeholder='Photo URL' />
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='price'>Price (per month):</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='text' name='price' id='price' maxlength='50' placeholder='£000.00' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='contactNumber'>Contact Number:</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='text' name='contactNumber' id='contactNumber' maxlength='12' placeholder='0000000000' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='addressLineOne'>Address Line 1:</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='addressLineOne' name='addressLineOne' id='addressLineOne' maxlength='100' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='addressLineTwo'>Address Line 2 (optional):</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='addressLineTwo' name='addressLineTwo' id='addressLineTwo' maxlength='100' />
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='city'>City:</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='city' name='city' id='city' maxlength='50' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='county'>County:</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='county' name='county' id='county' maxlength='50' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='postcode'>Postcode:</label>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <input type='postcode' name='postcode' id='postcode' maxlength='7' required/>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for=''bedroom'>Number of Bedrooms</label>
+                    <select name='bedroom'>
+                      <option value='1' selected>1</option>
+                      <option value='2'>2</option>
+                      <option value='3'>3</option>
+                      <option value='4'>4</option>
+                      <option value='5'>5</option>
+                      <option value='6'>6</option>
+                      <option value='7'>7</option>
+                      <option value='8'>8</option>
+                      <option value='9'>9</option>
+                      <option value='10'>10</option>
+                    </select>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <label for='type'>Type</label>
+                    <select name='type'>
+                      <option value='Flat' selected>Flat</option>
+                      <option value='Detached'>Detached</option>
+                      <option value='Semi-detached'>Semi-detached</option>
+                      <option value='Terraced'>Terraced</option>
+                      <option value='Bungalow'>Bungalow</option>
+                    </select>
+                  </th>
+                </tr>
+              </table>
+            <button type='submit' name='submit' value='Submit'>Submit</button>
+          </form>
+      </section>";
+    }elseif(mysqli_num_rows($input) == 0 && isset($_POST['submit'])){ // if no results
+      echo "This property does not exist. Please check your input and try again.";
     }
-  }else{ // if no results
-      echo "You do not have any listings yet. Please add a listing by clicking
-        the 'Add a new property' button at the top of the page.";
-  }
+  /*
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $sql = "UPDATE `db667536964`.`Listings` SET password = '$password', email = '$email' WHERE username = '$username'";
+    $result = mysqli_query($connect, $sql);
 
-  // close the connection
-  mysqli_close($connect);
+    if($result){
+      //echo("<meta http-equiv='refresh' content='3;url=index.php'>");
+      $passmsg = "Your Settings Have Been Changed. Redirecting to the home page...";
+      if(isset($passmsg)){ echo $passmsg;}
+    }else{
+      $failmsg = "Failed to Update Settings" . mysqli_error($connect);
+      if(isset($failmsg)){ echo $failmsg;}
+    }
+    */
 
-?>
-       </section>
+    // close the connection
+    mysqli_close($connect);
+  ?>
+         </section>
+        </section>
     </main>
     <footer>
       <p>

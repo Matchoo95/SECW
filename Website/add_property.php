@@ -44,11 +44,7 @@
       $postcode = strip_tags($postcode);
       $postcode = htmlspecialchars($postcode);
 
-
       $userID = $_SESSION['Users_userID'];
-
-      echo $userID;
-
 
       $bedroom = trim($_POST['bedroom']);
       $bedroom = strip_tags($bedroom);
@@ -64,14 +60,6 @@
         ('$information', '$photoLink', '$price', '$contactNumber',
           '$addressLineOne', '$addressLineTwo', '$city', '$county',
           '$postcode', '$userID', '$bedroom', '$type')";
-
-// example of correct syntax for the sql query
-// INSERT INTO `db667536964`.`Listings` (`listingID`, `information`, `photoLink`,
-// `price`, `contactNumber`, `addressLineOne`, `addressLineTwo`, `city`, `county`,
-// `postcode`, `Users_userID`, `bedroom`, `type`) VALUES ('123', '123', '123', '123',
-// '123', '123', '123', '123', '123', '123', '1', '10', '123');
-
-          //echo $sql;
 
       $listings = mysqli_query($connect, $sql);
       if($listings){
@@ -117,12 +105,12 @@
               <table>
                 <tr>
                   <th>
-                    <label for='information'>Information about the property (description):</label>
+                    <p>Information about the property (description):</p>
                   </th>
                 </tr>
                 <tr>
-                  <th>
-                    <input type='text' name='information' id='information' placeholder="Information" required autofocus/>
+                  </th>
+                    <textarea for='information' placeholder='Information'></textarea>
                   </th>
                 </tr>
                 <tr>

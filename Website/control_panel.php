@@ -29,8 +29,8 @@
         </nav>
   </header>
     <main>
+      <?php echo "Welcome, '$user'"; ?>
         <section id="mainCont" class="mainContent">
-          <?php echo "Welcome, '$user'"; ?>
           <h1>Your properties:</h1><hr />
 <?php
 
