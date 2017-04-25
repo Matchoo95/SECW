@@ -33,11 +33,17 @@
           <?php echo "Welcome, '$user'"; ?>
           <h1>Your properties:</h1><hr />
 <?php
+
+  // get user's ID from database
   $userNoQuery = "SELECT userID FROM `db667536964`.`Users` WHERE username='$user'";
   $userNoQueryResult = mysqli_query($connect, $userNoQuery) or die(mysqli_error($connect));
-  $userNo = mysqli_fetch_assoc($userNoQueryResult);
-
+  $userNo = mysqli_fetch_array($userNoQueryResult);
   $userID = $userNo['userID'];
+
+  // store user's ID as session variable to be used in other pages
+  $_SESSION['Users_userID'] = $userID;
+
+  // get listings that have been created by this user
   $sql = "SELECT * FROM `db667536964`.`Listings` WHERE Users_userID='$userID'";
 
   // send query to database and return error if it fails

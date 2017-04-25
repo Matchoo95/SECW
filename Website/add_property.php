@@ -44,7 +44,11 @@
       $postcode = strip_tags($postcode);
       $postcode = htmlspecialchars($postcode);
 
-      $Users_userID = $_SESSION['userID'];
+
+      $userID = $_SESSION['Users_userID'];
+
+      echo $userID;
+
 
       $bedroom = trim($_POST['bedroom']);
       $bedroom = strip_tags($bedroom);
@@ -59,7 +63,7 @@
         `county`, `postcode`, `Users_userID`, `bedroom`, `type`) VALUES
         ('$information', '$photoLink', '$price', '$contactNumber',
           '$addressLineOne', '$addressLineTwo', '$city', '$county',
-          '$postcode', '$Users_userID', '$bedroom', '$type')";
+          '$postcode', '$userID', '$bedroom', '$type')";
 
 // example of correct syntax for the sql query
 // INSERT INTO `db667536964`.`Listings` (`listingID`, `information`, `photoLink`,

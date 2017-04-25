@@ -84,15 +84,6 @@ INSERT INTO `Users` (`userID`, `username`, `password`, `email`, `firstname`, `la
 (473, '12345', '12345', '12345', '12345', '12345', 'student'),
 (474, 'jeff', '12345', 'jeff@fredrick.com', 'jeff', 'fredricks', 'vendor');
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Listings`
---
-ALTER TABLE `Listings`
-  ADD CONSTRAINT `fk_Listings_Users1` FOREIGN KEY (`Users_userID`) REFERENCES `Users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
