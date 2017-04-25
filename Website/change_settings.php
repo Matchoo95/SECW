@@ -21,5 +21,4 @@ if($result){
   $failmsg = "Failed to Update Settings" . mysqli_error($connect);
   if(isset($failmsg)){ echo $failmsg;}
 }
-
 ?>

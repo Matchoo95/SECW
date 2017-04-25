@@ -38,162 +38,162 @@
                   Please enter the Property Identification Number of the property
                   of which you wish to edit.
                 </p><br />
-                Property Identification Number: <input type="text" name="PIN"><br>
-                <button type='submit' name='submit' value='Change Details'>Submit</button>
+                Property Identification Number: <input type="text" name="pin"><br>
+                <button type='submit' name='next' value='Change Details'>Submit</button>
               </form>
               <br />
           </section>
-  <?php
-    // store user input of which property to edit
-    $pin = $_POST['PIN'];
-    // store userID
-    $userID = $_SESSION['Users_userID'];
+<?php
+// store user input of which property to edit
+$pin = $_POST['pin'];
+$_SESSION['listingID'] = $pin;
 
-    // get listings that have been created by this user
-    $sql = "SELECT * FROM `db667536964`.`Listings` WHERE Users_userID='$userID' AND listingID='$pin'";
+// store userID
+$userID = $_SESSION['Users_userID'];
 
-    // send query to database and return error if it fails
-    $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
+// get listings that have been created by this user
+$sql = "SELECT * FROM `db667536964`.`Listings` WHERE Users_userID='$userID' AND listingID='$pin'";
 
-    // output results
-    if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
-      echo "<section>
-          <h3>Change Details</h3>
-          <form id='edit' onsubmit='return validateRegisterForm()'
-          method='post' accept-charset='UTF-8' class='floatLeft'>
-          <p>Information about the property (description):</p>
-              <table>
+// send query to database and return error if it fails
+$input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
+
+// output change details form
+if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
+  echo "<section><h3>Changing Details of Property Number "; echo $pin;
+  echo "</h3>
+          <form action='change_property_settings.php' id='edit' onsubmit='return validateRegisterForm()'
+            method='post' accept-charset='UTF-8'>
+            <p>Information about the property (description):</p>
                 <table>
+                  <table>
+                    <tr>
+                      </th>
+                        <textarea name='information' placeholder='Information'></textarea>
+                      </th>
+                    </tr>
                   <tr>
-                    </th>
-                      <textarea for='information' placeholder='Information'></textarea>
+                    <th>
+                      <label for='photoLink'>Photo URL (optional):</label>
                     </th>
                   </tr>
-                <tr>
-                  <th>
-                    <label for='photoLink'>Photo URL (optional):</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='text' name='photoLink' id='photoLink' maxlength='100' placeholder='Photo URL' />
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='price'>Price (per month):</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='text' name='price' id='price' maxlength='50' placeholder='£000.00' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='contactNumber'>Contact Number:</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='text' name='contactNumber' id='contactNumber' maxlength='12' placeholder='0000000000' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='addressLineOne'>Address Line 1:</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='addressLineOne' name='addressLineOne' id='addressLineOne' maxlength='100' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='addressLineTwo'>Address Line 2 (optional):</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='addressLineTwo' name='addressLineTwo' id='addressLineTwo' maxlength='100' />
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='city'>City:</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='city' name='city' id='city' maxlength='50' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='county'>County:</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='county' name='county' id='county' maxlength='50' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='postcode'>Postcode:</label>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <input type='postcode' name='postcode' id='postcode' maxlength='7' required/>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for=''bedroom'>Number of Bedrooms</label>
-                    <select name='bedroom'>
-                      <option value='1' selected>1</option>
-                      <option value='2'>2</option>
-                      <option value='3'>3</option>
-                      <option value='4'>4</option>
-                      <option value='5'>5</option>
-                      <option value='6'>6</option>
-                      <option value='7'>7</option>
-                      <option value='8'>8</option>
-                      <option value='9'>9</option>
-                      <option value='10'>10</option>
-                    </select>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <label for='type'>Type</label>
-                    <select name='type'>
-                      <option value='Flat' selected>Flat</option>
-                      <option value='Detached'>Detached</option>
-                      <option value='Semi-detached'>Semi-detached</option>
-                      <option value='Terraced'>Terraced</option>
-                      <option value='Bungalow'>Bungalow</option>
-                    </select>
-                  </th>
-                </tr>
-              </table>
-            <button type='submit' name='submit' value='Submit'>Submit</button>
-          </form>
-      </section>";
-    }elseif(mysqli_num_rows($input) == 0 && isset($_POST['submit'])){ // if no results
-      echo "This property does not exist. Please check your input and try again.";
-    }
-
-    ?>
-    <section>
-      <h3>Current Properties</h3>
-    <?php
-    include './display_listings.php';
-    // close the connection
-    mysqli_close($connect);
-  ?>
+                  <tr>
+                    <th>
+                      <input type='text' name='photoLink' id='photoLink' maxlength='100' placeholder='Photo URL' />
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='price'>Price (per month):</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='price' id='price' maxlength='50' placeholder='£000.00' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='contactNumber'>Contact Number:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='text' name='contactNumber' id='contactNumber' maxlength='12' placeholder='0000000000' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='addressLineOne'>Address Line 1:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='addressLineOne' name='addressLineOne' id='addressLineOne' maxlength='100' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='addressLineTwo'>Address Line 2 (optional):</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='addressLineTwo' name='addressLineTwo' id='addressLineTwo' maxlength='100' />
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='city'>City:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='city' name='city' id='city' maxlength='50' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='county'>County:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='county' name='county' id='county' maxlength='50' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='postcode'>Postcode:</label>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <input type='postcode' name='postcode' id='postcode' maxlength='7' required/>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for=''bedroom'>Number of Bedrooms</label>
+                      <select name='bedroom'>
+                        <option value='1' selected>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
+                        <option value='8'>8</option>
+                        <option value='9'>9</option>
+                        <option value='10'>10</option>
+                      </select>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label for='type'>Type</label>
+                      <select name='type'>
+                        <option value='Flat' selected>Flat</option>
+                        <option value='Detached'>Detached</option>
+                        <option value='Semi-detached'>Semi-detached</option>
+                        <option value='Terraced'>Terraced</option>
+                        <option value='Bungalow'>Bungalow</option>
+                      </select>
+                    </th>
+                  </tr>
+                </table>
+              <button type='submit' name='submit' value='Submit'>Submit</button>
+            </form>
+        </section>";
+}elseif(mysqli_num_rows($input) == 0 && isset($_POST['next'])){ // if no results
+  echo "This property does not exist. Please check your input and try again.";
+}
+?>
+  <br /><br /><br /><br />
+  <section>
+    <h3>Current Properties</h3>
+<?php
+  include './display_listings.php';
+?>
          </section>
         </section>
     </main>

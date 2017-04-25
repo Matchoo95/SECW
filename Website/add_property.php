@@ -70,7 +70,6 @@
 
       // close the connection
       mysqli_close($connect);
-
     }
 ?>
 <html lang="en">
