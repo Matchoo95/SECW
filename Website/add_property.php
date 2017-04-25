@@ -61,7 +61,13 @@
           '$addressLineOne', '$addressLineTwo', '$city', '$county',
           '$postcode', '$Users_userID', '$bedroom', '$type')";
 
-          echo $sql;
+// example of correct syntax for the sql query
+// INSERT INTO `db667536964`.`Listings` (`listingID`, `information`, `photoLink`,
+// `price`, `contactNumber`, `addressLineOne`, `addressLineTwo`, `city`, `county`,
+// `postcode`, `Users_userID`, `bedroom`, `type`) VALUES ('123', '123', '123', '123',
+// '123', '123', '123', '123', '123', '123', '1', '10', '123');
+
+          //echo $sql;
 
       $listings = mysqli_query($connect, $sql);
       if($listings){
