@@ -106,7 +106,7 @@
               <table>
                 <tr>
                   </th>
-                    <textarea for='information' placeholder='Information'></textarea>
+                    <textarea name='information' placeholder='Information'></textarea>
                   </th>
                 </tr>
                 <tr>
