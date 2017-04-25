@@ -65,17 +65,14 @@
           <h3>Change Details</h3>
           <form id='edit' onsubmit='return validateRegisterForm()'
           method='post' accept-charset='UTF-8' class='floatLeft'>
+          <p>Information about the property (description):</p>
               <table>
-              <tr>
-                <th>
-                  <p>Information about the property (description):</p>
-                </th>
-              </tr>
-              <tr>
-                </th>
-                  <textarea for='information' placeholder='Information'></textarea>
-                </th>
-              </tr>
+                <table>
+                  <tr>
+                    </th>
+                      <textarea for='information' placeholder='Information'></textarea>
+                    </th>
+                  </tr>
                 <tr>
                   <th>
                     <label for='photoLink'>Photo URL (optional):</label>
@@ -192,21 +189,8 @@
     }elseif(mysqli_num_rows($input) == 0 && isset($_POST['submit'])){ // if no results
       echo "This property does not exist. Please check your input and try again.";
     }
-  /*
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $sql = "UPDATE `db667536964`.`Listings` SET password = '$password', email = '$email' WHERE username = '$username'";
-    $result = mysqli_query($connect, $sql);
 
-    if($result){
-      //echo("<meta http-equiv='refresh' content='3;url=index.php'>");
-      $passmsg = "Your Settings Have Been Changed. Redirecting to the home page...";
-      if(isset($passmsg)){ echo $passmsg;}
-    }else{
-      $failmsg = "Failed to Update Settings" . mysqli_error($connect);
-      if(isset($failmsg)){ echo $failmsg;}
-    }
-    */
+    include './display_listings.php';
 
     // close the connection
     mysqli_close($connect);

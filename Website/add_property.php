@@ -102,12 +102,8 @@
           <form id="register" onsubmit="return validateRegisterForm()"
           method="post" accept-charset="UTF-8" class="floatLeft">
             <h2>Add a new property listing</h2>
+            <p>Information about the property (description):</p>
               <table>
-                <tr>
-                  <th>
-                    <p>Information about the property (description):</p>
-                  </th>
-                </tr>
                 <tr>
                   </th>
                     <textarea for='information' placeholder='Information'></textarea>
