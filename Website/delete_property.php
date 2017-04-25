@@ -29,10 +29,42 @@
         </nav>
   </header>
     <main>
+      <?php echo "Welcome, '$user'"; ?>
         <section id="mainCont" class="mainContent">
-          <?php echo "Welcome, '$user'"; ?>
-          <h1>Your properties:</h1><hr />
+          <section>
+              <h3>Delete a Property</h3>
+              <form method="post" accept-charset='UTF-8'>
+                <p>
+                  Please enter the Property Identification Number of the property
+                  of which you wish to delete. Once the submit button has been pressed,
+                  the corrisponding property will be removed from our database.
+                  You have been warned.
+                </p><br />
+                Property Identification Number: <input type="text" name="PIN"><br>
+                <button type='submit' name='delete' value='delete'>Delete</button>
+              </form>
+              <br />
+          </section>
+          <section>
 <?php
+  // store user input of which property to edit
+  $pin = $_POST['PIN'];
+  // store userID
+  $userID = $_SESSION['Users_userID'];
+
+  if (isset($_POST['delete'])){
+    $sql = "DELETE FROM `db667536964`.`Listings` WHERE Users_userID='$userID' AND listingID='$pin'";
+    $result = mysqli_query($connect, $sql);
+    if($result){
+      $passmsg = "Your Listing Has Been Deleted.";
+      if(isset($passmsg)){ echo $passmsg;}
+    }else{
+      $failmsg = "Deletion Failed" . mysqli_error($connect);
+      if(isset($failmsg)){ echo $failmsg;}
+    }
+  }
+
+  echo "<h1>Your properties:</h1><hr />";
 
   // get user's ID from database
   $userNoQuery = "SELECT userID FROM `db667536964`.`Users` WHERE username='$user'";
@@ -60,10 +92,8 @@
       echo "You do not have any listings yet. Please add a listing by clicking
         the 'Add a new property' button at the top of the page.";
   }
-
   // close the connection
   mysqli_close($connect);
-
 ?>
        </section>
     </main>

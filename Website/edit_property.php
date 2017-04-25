@@ -43,10 +43,6 @@
               </form>
               <br />
           </section>
-          <section>
-            <h3>Current Properties</h3>
-
-
   <?php
     // store user input of which property to edit
     $pin = $_POST['PIN'];
@@ -190,8 +186,11 @@
       echo "This property does not exist. Please check your input and try again.";
     }
 
+    ?>
+    <section>
+      <h3>Current Properties</h3>
+    <?php
     include './display_listings.php';
-
     // close the connection
     mysqli_close($connect);
   ?>
