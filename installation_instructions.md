@@ -10,7 +10,7 @@ Instructions
 2. Drag and drop all files in the "Website" folder onto your Web Server.
 3. Import the SQL file under "Website -> sql -> database.sql" into your database.
 
-As it might be a pain to install for marking I have included the FTP server details and a running version of the system. That way you can check that the current github code matches with that on the web server and that we haven't made any changes after the deadline.
+As it might be a pain to install our system (due to the prerequisites), I have included the FTP server details and a running version of the system. That way you can check that the current github code matches with that on the web server and that we haven't made any changes after the deadline.
 
 A running version of the system can be found here: http://coursework.matthewhawkins.co/.
 
