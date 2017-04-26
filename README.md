@@ -11,10 +11,20 @@ We have our own webserver hosting the project. Here we are using phpmyadmin to m
 You can view the current state of the system here http://coursework.matthewhawkins.co/.
 
 # Installation Instructions
-TODO
+Prerequisites
+- Web Server
+- SQL Database
+- FTP Tool to transfer files
+We are using phpMyAdmin version 4.1.14.8 for our database.
+
+Instructions
+1. Open your FTP software and connect to your Web Server.
+2. Drag and drop all files in the "Website" folder onto your Web Server.
+3. Import the SQL file under "Website -> sql -> database.sql" into your database.
+
+Note: A running version of the system can be found here: http://coursework.matthewhawkins.co/. You can use this to try out the system first, before installing.
 
 # TO DO
-- Create individual pages from search results
 - Improve layout
 - Increase security by encrypting passwords (salt) and preventing sql injections
 - Optimise code
