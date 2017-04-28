@@ -16,20 +16,16 @@ include './auth.php'; // database connection
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
-    <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
-    </h1>
-        <nav class="navigation">
-          <ul>
-             <li class="active"><a href="index.php">Home</a></li>
-             <li ><a href="search.php">Search</a></li>
-             <li ><a href="advertise.php">Advertise</a></li>
-             <li ><a href="about.php">About</a></li>
-             <li ><a href="register.php">Register</a></li>
-          </ul>
-        </nav>
-  </header>
+  <nav class="navigation">
+    <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
+    <ul>
+       <li class="active"><a href="index.php">Home</a></li>
+       <li ><a href="search.php">Search</a></li>
+       <li ><a href="advertise.php">Advertise</a></li>
+       <li ><a href="about.php">About</a></li>
+       <li ><a href="register.php">Register</a></li>
+    </ul>
+  </nav>
     <main>
         <section class="loginBar">
           <article id="signin">

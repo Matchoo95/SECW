@@ -17,12 +17,8 @@ include './login_check.php'; // check if logged in
   </head>
   <body>
     <main>
-      <header>
-        <h1 class="logo">
-          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
-        </h1>
-      </header>
       <nav class="navigation">
+        <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
         <ul>
            <li class="active"><a href="index.php">Home</a></li>
            <li ><a href="search.php">Search</a></li>
