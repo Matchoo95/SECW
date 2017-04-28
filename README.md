@@ -15,6 +15,7 @@ Prerequisites
 - Web Server
 - SQL Database
 - FTP Tool to transfer files
+
 We are using phpMyAdmin version 4.1.14.8 for our database.
 
 Instructions
