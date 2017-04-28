@@ -14,7 +14,7 @@ if (isset($_SESSION['username'])){
 // if the delete button is pressed then do this code
 if (isset($_POST['delete'])){
   // create sql delete query based on the current users username
-  $sql = "DELETE FROM `db667536964`.`Users` WHERE $username = `username`";
+  $sql = "DELETE FROM `db667536964`.`Users` WHERE `username`='$username'";
 
   // check to see if the query is successful and return a message to user
   $result = mysqli_query($connect, $sql);
