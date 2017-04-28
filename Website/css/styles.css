@@ -1,3 +1,5 @@
+/* css used for most of the site */
+
 * {margin: 0; padding: 0}
 /*nav and footer styles*/
 nav, footer {
@@ -52,7 +54,6 @@ th, td {
   float: left;
 }
 
-/*TODO change px to em or decide on other form of sizing*/
 /*button styles*/
 .button {
   margin: auto;

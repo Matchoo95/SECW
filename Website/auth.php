@@ -1,7 +1,7 @@
 <?php
-// connect to database
+// connection to the database
 
-// datbase details
+// datbase details (please fill in your database details here)
 $host_name  = "db667536964.db.1and1.com";
 $database   = "db667536964";
 $user_name  = "dbo667536964";
@@ -12,5 +12,4 @@ $connect = mysqli_connect($host_name, $user_name, $password)
   or die("Connection failed: " . mysqli_errno($connect));
 $database = mysqli_select_db($connect, $database)
   or die("SQL error: " . mysqli_error($connect));
-
 ?>

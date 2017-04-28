@@ -1,11 +1,11 @@
 <?php
   // control panel for landlords
   session_start();
-  include './auth.php';
-  include './control_panel_access.php';
-  include './login_check.php';
+  include './auth.php'; // database connections
+  include './control_panel_access.php'; // check account type
+  include './login_check.php'; // check if logged in
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -45,11 +45,10 @@
               <br />
           </section>
 <?php
-// store user input of which property to edit
-$pin = $_POST['pin'];
-$_SESSION['listingID'] = $pin;
+$pin = $_POST['pin']; // property id in $pin
+$_SESSION['listingID'] = $pin; // create a session variable of $pin
 
-// store userID
+// store userID from session variable for local use
 $userID = $_SESSION['Users_userID'];
 
 // get listings that have been created by this user
@@ -62,7 +61,7 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
 if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
   echo "<section><h3>Changing Details of Property Number "; echo $pin;
   echo "</h3>
-          <form action='change_property_settings.php' id='edit' onsubmit='return validateRegisterForm()'
+          <form action='change_property_settings.php' id='edit'
             method='post' accept-charset='UTF-8'>
             <p>Information about the property (description):</p>
                 <table>
@@ -193,7 +192,7 @@ if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
   <section>
     <h3>Current Properties</h3>
 <?php
-  include './display_listings.php';
+  include './display_listings.php'; // display listings owned by current user
 ?>
          </section>
         </section>
@@ -204,5 +203,4 @@ if(mysqli_num_rows($input) > 0){ // if one or more results returned do this code
       </p>
     </footer>
   </body>
-  <script src="javascript/script.js"></script>
 </html>

@@ -1,9 +1,12 @@
 <?php
+// change user settings page
+
 session_start();
-include './auth.php';
-include './login.php';
-include './hide_login.php';
-include './login_check.php';
+
+include './auth.php'; // database connection
+include './login.php'; // display log in form
+include './hide_login.php'; // hide log in form if signed in
+include './login_check.php'; // check if logged in
 ?>
 <!DOCTYPE html>
 <html lang ="en">

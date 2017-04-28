@@ -1,10 +1,14 @@
 <?php
+// register page for new users
+
 session_start();
-include './auth.php';
+
+include './auth.php'; // database connection
 
 // if values are entered, put them in database
 if (isset($_POST['username']) && isset($_POST['password'])){
-    // prevent sql injectsions
+
+    // prevent basic sql injection
     $firstname = trim($_POST['firstname']);
     $firstname = strip_tags($firstname);
     $firstname = htmlspecialchars($firstname);
@@ -25,15 +29,20 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $password = strip_tags($password);
     $password = htmlspecialchars($password);
 
+    // check if the users accoutn is a vendor or student account
     $accountType = $_POST['accountType'];
-
     if ($_POST['accountType'] == '1'){
       $accountType = "vendor";
     }else{
       $accountType = "student";
     }
 
-    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `username`, `password`, accountType) VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$accountType')";
+    // generate sql insert query to insert the new user into the database
+    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`,
+       `username`, `password`, accountType) VALUES ('$firstname', '$lastname',
+          '$email', '$username', '$password', '$accountType')";
+
+    // check if the insertion was successful and return a message
     $result = mysqli_query($connect, $sql);
     if($result){
       echo("<meta http-equiv='refresh' content='3;url=index.php'>");
@@ -43,6 +52,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     }
   }
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -155,5 +165,4 @@ if (isset($_POST['username']) && isset($_POST['password'])){
       </p>
     </footer>
   </body>
-  <script src="javascript/script.js"></script>
 </html>

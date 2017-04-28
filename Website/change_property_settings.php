@@ -1,13 +1,16 @@
 <?php
+// changes a properties details in the database
+
 session_start();
-include "./auth.php";
+include "./auth.php"; // database connection
 
 // get listing number
 $pin = $_SESSION['listingID'];
 
+// get user id
 $userID = $_SESSION['Users_userID'];
 
-// prevent sql injectsions
+// store variables and prevent basic sql injection
 $information = trim($_POST['information']);
 $information = strip_tags($information);
 $information = htmlspecialchars($information);
@@ -52,14 +55,15 @@ $type = trim($_POST['type']);
 $type = strip_tags($type);
 $type = htmlspecialchars($type);
 
+// create sql update query
 $sql = "UPDATE `db667536964`.`Listings` SET information = '$information',
   photoLink = '$photoLink', price = '$price', contactNumber = '$contactNumber',
   addressLineOne = '$addressLineOne', addressLineTwo = '$addressLineTwo',
   city = '$city', county = '$county', postcode = '$postcode', bedroom = '$bedroom',
   type = '$type' WHERE Users_userID='$userID' AND listingID='$pin'";
 
+// check to see if the query is successful and return a message to user
 $result = mysqli_query($connect, $sql);
-
 if($result){
   echo("<meta http-equiv='refresh' content='3;url=control_panel.php'>");
   $passmsg = "Your Listing Has Been Changed. Redirecting to Control Panel...";
@@ -68,10 +72,4 @@ if($result){
   $failmsg = "Failed to Update Listing" . mysqli_error($connect);
   if(isset($failmsg)){ echo $failmsg;}
 }
-
-echo $sql;
-echo "<br />";
-echo $userID;
-echo "<br />";
-echo $pin;
 ?>

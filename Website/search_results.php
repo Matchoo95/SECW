@@ -1,7 +1,11 @@
 <?php
+// displays search results to the user
+
 session_start();
-include './auth.php';
+
+include './auth.php'; // database connection
 ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -30,6 +34,7 @@ include './auth.php';
     <main>
         <section class="loginBar">
           <?php
+            // show the login side panel or options if user is signed in
             include './login.php';
             include './hide_login.php';
           ?>
@@ -49,8 +54,7 @@ include './auth.php';
         <section id="mainCont" class="mainContent">
           <h2>Search Results</h2>
 <?php
-
-// prevent sql injectsions
+// prevent basic sql injectsion
 $loc = trim($_POST['location']);
 $loc = strip_tags($loc);
 $loc = htmlspecialchars($loc);
@@ -71,11 +75,12 @@ $min = trim($_POST['min']);
 $min = strip_tags($min);
 $min = htmlspecialchars($min);
 
-// build query
+// build basic sql query
 $sql = "SELECT * FROM `db667536964`.`Listings`
 WHERE (bedroom = '$bed')
 AND (type = '$type')";
 
+// append extra parts to the sql based on user input
 if(!empty($loc)){
   $sql .= " AND (`city` LIKE '%".$loc."%' OR `addressLineOne` LIKE '%".$loc."%' OR `addressLineTwo` LIKE '%".$loc."%' OR `county` LIKE '%".$loc."%')";
 }
@@ -85,6 +90,7 @@ if(!empty($max)){
 if(!empty($min)){
   $sql .= " AND (`price` >= '".$min."')";
 }
+// append to the end of the query
 $sql .= " ORDER BY price;";
 
 // send query to database and return error if it fails
@@ -112,5 +118,4 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
       </p>
     </footer>
   </body>
-  <script src="javascript/script.js"></script>
 </html>

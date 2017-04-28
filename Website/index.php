@@ -1,8 +1,11 @@
 <?php
-  session_start();
-  include './auth.php';
-?>
+  // landing page
 
+  session_start();
+
+  include './auth.php'; // database connections
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -30,6 +33,7 @@
         <section class="loginBar">
           <article id="signin">
             <?php
+              // show the login side panel or options if user is signed in
               include './login.php';
               include './hide_login.php';
             ?>
@@ -56,5 +60,4 @@
       </p>
     </footer>
   </body>
-  <script src="javascript/script.js"></script>
 </html>
