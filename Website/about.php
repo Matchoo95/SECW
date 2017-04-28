@@ -1,8 +1,10 @@
 <?php
-session_start();
-include './auth.php';
-?>
+// about the site
 
+session_start();
+include './auth.php'; // database connection
+?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -14,9 +16,11 @@ include './auth.php';
 </head>
 
 <body>
-  
+  <header>
+    <h1 class="logo">
+      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
+    </h1>
         <nav class="navigation">
-          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
           <ul>
              <li class="active"><a href="index.php">Home</a></li>
              <li ><a href="search.php">Search</a></li>
@@ -25,11 +29,12 @@ include './auth.php';
              <li ><a href="register.php">Register</a></li>
           </ul>
         </nav>
-
+  </header>
     <main>
         <section class="loginBar">
           <article id="signin">
             <?php
+              // show the login side panel or options if user is signed in
               include './login.php';
               include './hide_login.php';
             ?>
@@ -64,5 +69,4 @@ include './auth.php';
       </p>
     </footer>
   </body>
-  <script src="javascript/script.js"></script>
 </html>

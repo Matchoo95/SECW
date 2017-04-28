@@ -1,9 +1,12 @@
 <?php
+// change user settings page
+
 session_start();
-include './auth.php';
-include './login.php';
-include './hide_login.php';
-include './login_check.php';
+
+include './auth.php'; // database connection
+include './login.php'; // display log in form
+include './hide_login.php'; // hide log in form if signed in
+include './login_check.php'; // check if logged in
 ?>
 <!DOCTYPE html>
 <html lang ="en">
@@ -15,15 +18,12 @@ include './login_check.php';
   <body>
     <main>
       <header>
-
+        <h1 class="logo">
+          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
+        </h1>
       </header>
-
-
-
       <nav class="navigation">
-        <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
         <ul>
-
            <li class="active"><a href="index.php">Home</a></li>
            <li ><a href="search.php">Search</a></li>
            <li ><a href="advertise.php">Advertise</a></li>
