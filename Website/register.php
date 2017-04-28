@@ -1,14 +1,10 @@
 <?php
-// register page for new users
-
 session_start();
-
-include './auth.php'; // database connection
+include './auth.php';
 
 // if values are entered, put them in database
 if (isset($_POST['username']) && isset($_POST['password'])){
-
-    // prevent basic sql injection
+    // prevent sql injectsions
     $firstname = trim($_POST['firstname']);
     $firstname = strip_tags($firstname);
     $firstname = htmlspecialchars($firstname);
@@ -29,20 +25,15 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     $password = strip_tags($password);
     $password = htmlspecialchars($password);
 
-    // check if the users accoutn is a vendor or student account
     $accountType = $_POST['accountType'];
+
     if ($_POST['accountType'] == '1'){
       $accountType = "vendor";
     }else{
       $accountType = "student";
     }
 
-    // generate sql insert query to insert the new user into the database
-    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`,
-       `username`, `password`, accountType) VALUES ('$firstname', '$lastname',
-          '$email', '$username', '$password', '$accountType')";
-
-    // check if the insertion was successful and return a message
+    $sql = "INSERT INTO `db667536964`.`Users` (`firstname`, `lastname`, `email`, `username`, `password`, accountType) VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$accountType')";
     $result = mysqli_query($connect, $sql);
     if($result){
       echo("<meta http-equiv='refresh' content='3;url=index.php'>");
@@ -52,7 +43,6 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     }
   }
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -65,10 +55,12 @@ if (isset($_POST['username']) && isset($_POST['password'])){
 
 <body>
   <header>
+    </header>
     <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
+
     </h1>
         <nav class="navigation">
+          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
           <ul>
              <li class="active"><a href="index.php">Home</a></li>
              <li ><a href="search.php">Search</a></li>
@@ -77,7 +69,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
              <li ><a href="register.php">Register</a></li>
           </ul>
         </nav>
-  </header>
+
     <main>
         <section class="loginBar">
           <article id="register">
@@ -165,4 +157,5 @@ if (isset($_POST['username']) && isset($_POST['password'])){
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>

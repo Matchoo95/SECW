@@ -1,11 +1,8 @@
 <?php
-  // landing page
-
   session_start();
-
-  include './auth.php'; // database connections
+  include './auth.php';
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -18,22 +15,24 @@
 
 <body>
   <header>
-    <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
-        <nav class="navigation">
-          <ul>
-             <li class="active"><a href="index.php">Home</a></li>
-             <li ><a href="search.php">Search</a></li>
-             <li ><a href="advertise.php">Advertise</a></li>
-             <li ><a href="about.php">About</a></li>
-             <li ><a href="register.php">Register</a></li>
-          </ul>
-        </nav>
+
   </header>
+
+  <nav class="navigation">
+    <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
+      <ul>
+         <li class="active"><a href="index.php">Home</a></li>
+         <li ><a href="search.php">Search</a></li>
+         <li ><a href="advertise.php">Advertise</a></li>
+         <li ><a href="about.php">About</a></li>
+         <li ><a href="register.php">Register</a></li>
+      </ul>
+    </nav>
+
     <main>
         <section class="loginBar">
           <article id="signin">
             <?php
-              // show the login side panel or options if user is signed in
               include './login.php';
               include './hide_login.php';
             ?>
@@ -60,4 +59,5 @@
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>

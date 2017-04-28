@@ -1,11 +1,7 @@
 <?php
-// unauthorised access page
-
 session_start();
-
-include './auth.php'; // database connection
+include './auth.php';
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,7 +13,6 @@ include './auth.php'; // database connection
     <h1>Cannot access this page</h1>
     <p>Sorry, but you do not have access to this page. </p>
   <?php
-    // display a login form if the user is not logged in
     include './login.php';
     if(!isset($_SESSION['username'])){
       echo "

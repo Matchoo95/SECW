@@ -1,15 +1,13 @@
 <?php
-// allow user to add a new property
-
+  // control panel for landlords
   session_start();
-  include './auth.php'; // database connections
-  include './control_panel_access.php'; // check account type
-  include './login_check.php'; // check if logged in
+  include './auth.php';
+  include './control_panel_access.php';
+  include './login_check.php';
 
   // if values are entered, put them in database
   if (isset($_POST['submit'])){
-
-      // store variables and prevent basic sql injection
+      // prevent sql injectsions
       $information = trim($_POST['information']);
       $information = strip_tags($information);
       $information = htmlspecialchars($information);
@@ -56,7 +54,6 @@
       $type = strip_tags($type);
       $type = htmlspecialchars($type);
 
-      // generate query to insert data into the database
       $sql = "INSERT INTO `db667536964`.`Listings` (`information`, `photoLink`,
         `price`, `contactNumber`, `addressLineOne`, `addressLineTwo`, `city`,
         `county`, `postcode`, `Users_userID`, `bedroom`, `type`) VALUES
@@ -64,7 +61,6 @@
           '$addressLineOne', '$addressLineTwo', '$city', '$county',
           '$postcode', '$userID', '$bedroom', '$type')";
 
-      // checks if the query was successful
       $listings = mysqli_query($connect, $sql);
       if($listings){
         $passmsg = "Your Listing Has Been Created. You can check that it has uploaded on the main page of the control panel.";
@@ -76,7 +72,6 @@
       mysqli_close($connect);
     }
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -236,4 +231,5 @@
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>

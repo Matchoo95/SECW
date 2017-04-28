@@ -1,12 +1,11 @@
 <?php
   // control panel for landlords
-
   session_start();
-  include './auth.php'; // database connection
-  include './control_panel_access.php'; // check account type
-  include './login_check.php'; // check if logged in
+  include './auth.php';
+  include './control_panel_access.php';
+  include './login_check.php';
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -34,7 +33,7 @@
         <section id="mainCont" class="mainContent">
           <h1>Your properties:</h1><hr />
 <?php
-  include './display_listings.php'; // display listings owned by current user
+  include './display_listings.php';
 ?>
        </section>
     </main>
@@ -44,4 +43,5 @@
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>

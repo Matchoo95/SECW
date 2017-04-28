@@ -1,12 +1,11 @@
 <?php
   // control panel for landlords
-
   session_start();
   include './auth.php';
   include './control_panel_access.php';
   include './login_check.php';
 ?>
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <title>Edu Home</title>

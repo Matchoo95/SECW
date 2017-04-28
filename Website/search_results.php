@@ -1,11 +1,7 @@
 <?php
-// displays search results to the user
-
 session_start();
-
-include './auth.php'; // database connection
+include './auth.php';
 ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Edu Home</title>
@@ -18,10 +14,10 @@ include './auth.php'; // database connection
 
 <body>
   <header>
-    <h1 class="logo">
-      <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
-    </h1>
+    </header>
+
         <nav class="navigation">
+          <a href="index.php"><img src="images/logo.jpg" alt="Edu Home" height="100" width="200"></a>
           <ul>
              <li class="active"><a href="index.php">Home</a></li>
              <li ><a href="search.php">Search</a></li>
@@ -30,11 +26,10 @@ include './auth.php'; // database connection
              <li ><a href="register.php">Register</a></li>
           </ul>
         </nav>
-  </header>
+
     <main>
         <section class="loginBar">
           <?php
-            // show the login side panel or options if user is signed in
             include './login.php';
             include './hide_login.php';
           ?>
@@ -54,7 +49,8 @@ include './auth.php'; // database connection
         <section id="mainCont" class="mainContent">
           <h2>Search Results</h2>
 <?php
-// prevent basic sql injectsion
+
+// prevent sql injectsions
 $loc = trim($_POST['location']);
 $loc = strip_tags($loc);
 $loc = htmlspecialchars($loc);
@@ -75,12 +71,11 @@ $min = trim($_POST['min']);
 $min = strip_tags($min);
 $min = htmlspecialchars($min);
 
-// build basic sql query
+// build query
 $sql = "SELECT * FROM `db667536964`.`Listings`
 WHERE (bedroom = '$bed')
 AND (type = '$type')";
 
-// append extra parts to the sql based on user input
 if(!empty($loc)){
   $sql .= " AND (`city` LIKE '%".$loc."%' OR `addressLineOne` LIKE '%".$loc."%' OR `addressLineTwo` LIKE '%".$loc."%' OR `county` LIKE '%".$loc."%')";
 }
@@ -90,7 +85,6 @@ if(!empty($max)){
 if(!empty($min)){
   $sql .= " AND (`price` >= '".$min."')";
 }
-// append to the end of the query
 $sql .= " ORDER BY price;";
 
 // send query to database and return error if it fails
@@ -118,4 +112,5 @@ $input = mysqli_query($connect, $sql) or die(mysqli_error($connect));
       </p>
     </footer>
   </body>
+  <script src="javascript/script.js"></script>
 </html>

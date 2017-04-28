@@ -1,29 +1,85 @@
-/* css used for most of the site */
+* {margin: 0; padding: 0 ; align-self:center;}
 
-* {margin: 0; padding: 0}
-/*nav and footer styles*/
-nav, footer {
-    clear: both;
-    height: 3em;
-    color: #ffffff;
-    background-color: #707070;
+body {
+  background-color: #CEE5BA
+}
+
+footer {
+  position: fixed;
+  border: 0.5em;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+header{display:inline-block;}
+
+
+
+
+header a img{    display:inline-block;
+    width: 250px;
+    height: auto;
+    margin: 10px;
+    border: 5px solid;
+    border-radius: 5px;
+    background-color: LightSteelBlue;
+    text-align: center;
+
+
 }
 
 nav ul {
-    padding: 0.325em 0em 0.325em 2em;
+    padding: 0.5em 0em 0.325em 2em;
 }
 
 nav li {
     display: inline;
-    margin-right: 1.5em;
+    margin: 0.5em;
+    margin-right: 2em;
 }
 
-nav li a {
-    color: #ffffff;
+ul{display:inline-block;
+
+
+}
+header img{height:100%;
+  width: auto;
+
+
 }
 nav li a:hover, nav li current {
     color: #000000;
 }
+
+/*nav and footer styles*/
+nav, footer {
+    min-width: 1520px;
+    display:block;
+    padding: 2em;
+    clear: both;
+    color: #ffffff;
+    background-color: #86C44F;
+
+}
+
+
+nav li a{    margin: 20px;
+    padding: 10px;
+    background-color: B7E291;
+    border: 5px solid green;
+    border-radius: 5px;
+    font-size: 3em;
+    text-decoration: none;
+    color: black;
+
+
+}
+
+
+
+
+
+
 
 .mainContent {
   margin: auto;
@@ -54,12 +110,14 @@ th, td {
   float: left;
 }
 
+/*TODO change px to em or decide on other form of sizing*/
 /*button styles*/
 .button {
   margin: auto;
   display:inline-block;
   width: 300px;
   height: 100px;
+
   text-align: center;
   /*button font style*/
   color: rgba(0, 0, 0, 0.55);
@@ -69,6 +127,13 @@ th, td {
   /*box-shadow: 0 8px 0 #000000;*/
   font: bold 1.6em/50px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
+
+section.mainContent{
+          margin:auto;
+          width: 50%;
+
+}
+
 a.button {
   text-decoration: none;
 }
@@ -77,25 +142,14 @@ a.button:hover {
   background: #202020;
 }
 
-body {
-  background-color: #EBEDED
-}
 
-footer {
-  position: relative;
-  border: 0.5em;
-  right: 0;
-  left: 0;
-  bottom: -50;
-  text-align: center;
-}
 
 @media (max-width: 414px) {
   .loginBar {
     float:none;
     margin: 0 auto;
-    width:50%;
-    text-align: center;
+    width:55%;
+    align-content: center;
   }
 
 label {
@@ -103,9 +157,9 @@ label {
   display: inline;
 }
 
-  .button{
-    display:table;
-    width:50%;
-    margin: 0 auto;
-  }
+p, h1,h2,h3,h4{
+
+  padding:10px;
+  margin:10px;
+
 }

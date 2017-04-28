@@ -1,9 +1,7 @@
 <?php
-// display listings owned by current user
-
   session_start();
 
-  // get user's ID from database and store it in $userID
+  // get user's ID from database
   $userNoQuery = "SELECT userID FROM `db667536964`.`Users` WHERE username='$user'";
   $userNoQueryResult = mysqli_query($connect, $userNoQuery) or die(mysqli_error($connect));
   $userNo = mysqli_fetch_array($userNoQueryResult);
@@ -29,6 +27,8 @@
       echo "You do not have any listings yet. Please add a listing by clicking
         the 'Add a new property' button at the top of the page.";
   }
+
   // close the connection
   mysqli_close($connect);
+
 ?>
