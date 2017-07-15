@@ -2,10 +2,10 @@
 // connection to the database
 
 // datbase details (please fill in your database details here)
-$host_name  = "db667536964.db.1and1.com";
-$database   = "db667536964";
-$user_name  = "dbo667536964";
-$password   = "Ti63df2754";
+$host_name  = "";
+$database   = "";
+$user_name  = "";
+$password   = "";
 
 // create connection and check for errors
 $connect = mysqli_connect($host_name, $user_name, $password)
